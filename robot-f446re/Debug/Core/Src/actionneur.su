@@ -1,0 +1,9 @@
+actionneur.c:7:6:initBras	16	static
+actionneur.c:27:6:catchObject	16	static
+actionneur.c:30:6:releasObject	16	static
+actionneur.c:35:6:initFlag	4	static
+actionneur.c:39:6:deployFlag	4	static
+actionneur.c:43:6:retakeFlag	4	static
+actionneur.c:48:6:initManche	8	static
+actionneur.c:56:6:deployManch	8	static
+actionneur.c:60:6:retakeManch	8	static

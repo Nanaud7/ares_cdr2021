@@ -1,0 +1,7 @@
+moteurs.c:3:6:initMoteurs	24	static
+moteurs.c:18:6:runForward	16	static
+moteurs.c:26:6:runBackward	16	static
+moteurs.c:35:6:stopMoteurs	8	static
+moteurs.c:40:6:startMoteurs	8	static
+moteurs.c:45:6:rotateG	16	static
+moteurs.c:53:6:rotateD	16	static
