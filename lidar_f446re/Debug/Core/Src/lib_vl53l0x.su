@@ -1,0 +1,15 @@
+lib_vl53l0x.c:11:6:vl_xshut_init	24	static
+lib_vl53l0x.c:18:6:vl_sensors_init	32	static
+lib_vl53l0x.c:33:6:vl_clear_it_mask	16	static
+lib_vl53l0x.c:37:10:vl_perform_ranging	16	static
+lib_vl53l0x.c:41:10:vl_perform_ranging_it	16	static
+lib_vl53l0x.c:49:9:vl53l0x_Init	24	static
+lib_vl53l0x.c:77:9:vl53l0x_PerformMeasurement	24	static
+lib_vl53l0x.c:90:10:vl53l0x_PerformRangingMeasurement	48	static
+lib_vl53l0x.c:98:9:vl53l0x_SetDeviceAddress	16	static
+lib_vl53l0x.c:105:10:vl53l0x_PerformRangingMeasurement_IT	48	static
+lib_vl53l0x.c:120:9:vl53l0x_Device_Initialization	24	static
+lib_vl53l0x.c:139:9:vl53l0x_Calibration_Data_Load	24	static
+lib_vl53l0x.c:161:9:vl53l0x_System_Settings	16	static
+lib_vl53l0x.c:172:9:vl53l0x_Range_Profiles	32	static
+lib_vl53l0x.c:217:9:vl53l0x_Manufacturing_Calibration	40	static
