@@ -97,7 +97,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   RetargetInit(&huart1);
-  printf("lidar_f303k8\r\n");
+  //printf("lidar_f303k8\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */

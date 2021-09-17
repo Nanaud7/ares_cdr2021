@@ -15,7 +15,7 @@ typedef int bool;
 #define MODULE_COMPTEUR 1
 #define MODULE_DEBUG 1
 #define MODULE_IHM 1
-#define MODULE_LIDAR 0
+#define MODULE_LIDAR 1
 #define MODULE_MOTEURS 1
 #define MODULE_ODOMETRIE 1
 #define MODULE_STRATEGIE 1
@@ -40,7 +40,7 @@ typedef int bool;
 #define ASSERV_DISTANCE_EN 1
 
 // Vitesses et accélérations max
-#define VMAX_DISTANCE 3.5 // 4.0
+#define VMAX_DISTANCE 0.2 // 4.0
 #define VMIN_DISTANCE 0.2
 #define VMAX_ROTATION 2.0
 #define VMIN_ROTATION 0.2
@@ -48,8 +48,8 @@ typedef int bool;
 
 /* Module Debug */
 #define DEBUG_ODOMETRIE 0
-#define DEBUG_ASSERVISSEMENT 1
-#define DEBUG_LIDAR 0
+#define DEBUG_ASSERVISSEMENT 0
+#define DEBUG_LIDAR 1
 #define DEBUG_CPT 0
 #define DEBUG_FAULT 0
 #define DEBUG_TIRETTE 0

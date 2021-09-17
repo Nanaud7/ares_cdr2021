@@ -12,4 +12,4 @@ lib_vl53l0x.c:120:9:vl53l0x_Device_Initialization	24	static
 lib_vl53l0x.c:139:9:vl53l0x_Calibration_Data_Load	24	static
 lib_vl53l0x.c:161:9:vl53l0x_System_Settings	16	static
 lib_vl53l0x.c:172:9:vl53l0x_Range_Profiles	32	static
-lib_vl53l0x.c:217:9:vl53l0x_Manufacturing_Calibration	40	static
+lib_vl53l0x.c:218:9:vl53l0x_Manufacturing_Calibration	40	static

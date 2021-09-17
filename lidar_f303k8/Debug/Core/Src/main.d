@@ -28,16 +28,16 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/config.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
  ../Core/Inc/lib_vl53l0x.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/AX-12/servoAX12.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/AX-12/servoAX12.h \
  ../Core/Inc/usart.h ../Core/Inc/main.h ../Core/Inc/main.h \
  ../Core/Inc/i2c.h ../Core/Inc/gpio.h
 
@@ -101,25 +101,25 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/config.h \
 
 ../Core/Inc/lib_vl53l0x.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/AX-12/servoAX12.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/AX-12/servoAX12.h:
 
 ../Core/Inc/usart.h:
 

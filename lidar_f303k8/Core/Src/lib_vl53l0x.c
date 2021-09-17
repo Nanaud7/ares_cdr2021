@@ -80,7 +80,7 @@ uint8_t vl53l0x_PerformMeasurement(VL53L0X_Dev_t* dev, VL53L0X_RangingMeasuremen
 	VL53L0X_WaitDeviceReadyForNewMeasurement(dev, 100);
 
 	if(VL53L0X_ERROR_NONE != (status = VL53L0X_GetRangingMeasurementData(dev, VL53L0X_RangingMeasurementData))){
-		printf("Error GetRangingMeasurementData() : %d\r\n",status);
+		//printf("Error GetRangingMeasurementData() : %d\r\n",status);
 		return 1;
 	}
 
@@ -122,13 +122,13 @@ uint8_t vl53l0x_Device_Initialization(VL53L0X_Dev_t* dev){
 
 	/* DataInit */
 	if(VL53L0X_ERROR_NONE != (status = VL53L0X_DataInit(dev))){
-		printf("Error DataInit() : %d\r\n",status);
+		//printf("Error DataInit() : %d\r\n",status);
 		return 1;
 	}
 
 	/* StaticInit */
 	if(VL53L0X_ERROR_NONE != (status = VL53L0X_StaticInit(dev))){
-		printf("Error StaticInit() : %d\r\n",status);
+		//printf("Error StaticInit() : %d\r\n",status);
 		return 1;
 	}
 
@@ -199,7 +199,8 @@ uint8_t vl53l0x_Range_Profiles(VL53L0X_Dev_t* dev){
 		finalRangeVcselPeriod = 10;
 		break;
 	default:
-		printf("Not Supported");
+		//printf("Not Supported");
+		break;
 	}
 
 	VL53L0X_SetLimitCheckValue(dev, VL53L0X_CHECKENABLE_SIGNAL_RATE_FINAL_RANGE, signalLimit);

@@ -27,15 +27,15 @@ Core/Src/lib_vl53l0x.o: ../Core/Src/lib_vl53l0x.c \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
- C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h
 
 ../Core/Inc/lib_vl53l0x.h:
 
@@ -95,20 +95,20 @@ Core/Src/lib_vl53l0x.o: ../Core/Src/lib_vl53l0x.c \
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
 
-C:/Git\ Folder/lidar_ares_ensea/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:

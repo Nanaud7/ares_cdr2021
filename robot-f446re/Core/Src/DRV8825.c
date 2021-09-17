@@ -43,9 +43,11 @@ void DRV8825_moveMotorRPM(Moteur* drv8825,float rpm){
 }
 
 void DRV8825_moveMotorLineSpeed(Moteur* drv8825,float vitesse){
+#if	MODULE_MOTEURS
 	vitesse= vitesse*1000;
 	uint16_t f = (PAS*vitesse)/(2*M_PI*RAYON);
 	DRV8825_setFrequency(drv8825, f);
+#endif
 }
 
 void DRV8825_setFrequency(Moteur* drv8825, uint16_t freq){

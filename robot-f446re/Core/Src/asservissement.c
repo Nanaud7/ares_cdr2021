@@ -279,6 +279,8 @@ void ASSERV_distance_new(CONSIGNE point, double distanceCible, double consigneAn
     	DRV8825_moveMotorLineSpeed(&moteur_D, vitesse);
     }
 
+    //printf("%d %d\r\n", StopFront, StopBack);
+
 	// Choix du sens
 	if(point.dir == FORWARD){
 		if(StopFront == 0){
