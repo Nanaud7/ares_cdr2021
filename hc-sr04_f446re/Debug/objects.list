@@ -1,7 +1,3 @@
-"Core/Src/DWT_Delay.o"
-"Core/Src/HCSR04.o"
-"Core/Src/HCSR04_cfg.o"
-"Core/Src/Timer_Delay.o"
 "Core/Src/gpio.o"
 "Core/Src/main.o"
 "Core/Src/retarget.o"

@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "retarget.h"
 /* USER CODE END Includes */
 
@@ -46,13 +47,16 @@
 
 /* USER CODE BEGIN PV */
 uint32_t cpt_trigger = 0;
-uint32_t tick_trigger = 0;
+uint32_t cpt_us = 0;
+
+uint32_t time_cpt_rising = 0;
+double distance = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-uint32_t micros();
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -93,18 +97,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   RetargetInit(&huart2);
 
-  HAL_TIM_Base_Start_IT(&htim4); // 10µs
-
-  // Initialise SysTick to tick at 1ms by initialising it with SystemCoreClock (Hz)/1000
-  volatile uint32_t counter = 0;
-  SysTick_Config(SystemCoreClock); // /1000
+  HAL_TIM_Base_Start_IT(&htim4); // 1us
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  printf("distance : %lf cm\r\n", distance);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -164,38 +164,36 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM4){
-		//printf("TIM4 PeriodElapsed\r\n");
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
+		cpt_us++;
 		cpt_trigger++;
+		//printf("cpt_trigger = %d\r\n", cpt_trigger);
 
-		if(cpt_trigger >= 100000){
+		if(cpt_trigger >= 0 && cpt_trigger < 10){
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
+		}
+		else if(cpt_trigger >= 20) {
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 		}
 	}
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-
-
-  if(GPIO_Pin == GPIO_PIN_1) {
-	  if(GPIO_Pen)
-    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_SET);
+  if(GPIO_Pin == GPIO_PIN_1)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){
+    	time_cpt_rising = cpt_us;
+    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
+    } else{
+    	distance = ((float)(cpt_us - time_cpt_rising) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
+    	cpt_us = 0;
+    	cpt_trigger = 0;
+    }
   }
-
-  else {
-      __NOP();
-  }
-}
-
-SysTick_Handler(void) {
-  counter++;
-}
-
-uint32_t micros() {
-  return counter;
 }
 
 /* USER CODE END 4 */

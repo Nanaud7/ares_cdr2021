@@ -67,17 +67,6 @@ void Error_Handler(void);
 #define ECHO1_Pin GPIO_PIN_1
 #define ECHO1_GPIO_Port GPIOB
 #define ECHO1_EXTI_IRQn EXTI1_IRQn
-#define TRIGGER_Pin GPIO_PIN_2
-#define TRIGGER_GPIO_Port GPIOB
-#define ECHO4_Pin GPIO_PIN_13
-#define ECHO4_GPIO_Port GPIOB
-#define ECHO4_EXTI_IRQn EXTI15_10_IRQn
-#define ECHO3_Pin GPIO_PIN_14
-#define ECHO3_GPIO_Port GPIOB
-#define ECHO3_EXTI_IRQn EXTI15_10_IRQn
-#define ECHO2_Pin GPIO_PIN_15
-#define ECHO2_GPIO_Port GPIOB
-#define ECHO2_EXTI_IRQn EXTI15_10_IRQn
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
