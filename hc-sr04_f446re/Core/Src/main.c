@@ -48,9 +48,10 @@
 /* USER CODE BEGIN PV */
 uint32_t cpt_trigger = 0;
 uint32_t cpt_us = 0;
+uint8_t us_ended = 0;
 
-uint32_t time_cpt_rising = 0;
-double distance = 0;
+uint32_t time_cpt_rising[4] = {0};
+double us_dist[4] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -104,7 +105,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  printf("distance : %lf cm\r\n", distance);
+	  printf("dist us1 : %lf cm\r\n", us_dist[0]);
+	  printf("dist us2 : %lf cm\r\n", us_dist[1]);
+	  printf("dist us3 : %lf cm\r\n", us_dist[2]);
+	  printf("dist us4 : %lf cm\r\n", us_dist[3]);
+	  printf("\r\n");
+
+	  HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -177,7 +184,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		else if(cpt_trigger >= 20) {
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 		}
+
+		if(us_ended < 4 && cpt_us >= 1000){
+			cpt_us = 0;
+			cpt_trigger = 0;
+		}
 	}
+
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -185,13 +198,69 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if(GPIO_Pin == GPIO_PIN_1)
   {
     if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){
-    	time_cpt_rising = cpt_us;
+    	time_cpt_rising[0] = cpt_us;
     	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
     } else{
-    	distance = ((float)(cpt_us - time_cpt_rising) * 0.034) / 2.0;
+    	us_dist[0] = ((float)(cpt_us - time_cpt_rising[0]) * 0.034) / 2.0;
     	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
-    	cpt_us = 0;
-    	cpt_trigger = 0;
+
+    	us_ended++;
+    	if (us_ended >= 3){
+        	cpt_us = 0;
+        	cpt_trigger = 0;
+    	}
+
+    }
+  }
+
+  if(GPIO_Pin == GPIO_PIN_15)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)){
+    	time_cpt_rising[1] = cpt_us;
+    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
+    } else{
+    	us_dist[1] = ((float)(cpt_us - time_cpt_rising[1]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
+
+    	us_ended++;
+    	if (us_ended >= 3){
+        	cpt_us = 0;
+        	cpt_trigger = 0;
+    	}
+    }
+  }
+
+  if(GPIO_Pin == GPIO_PIN_14)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)){
+    	time_cpt_rising[2] = cpt_us;
+    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
+    } else{
+    	us_dist[2] = ((float)(cpt_us - time_cpt_rising[2]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
+
+    	us_ended++;
+    	if (us_ended >= 3){
+        	cpt_us = 0;
+        	cpt_trigger = 0;
+    	}
+    }
+  }
+
+  if(GPIO_Pin == GPIO_PIN_13)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)){
+    	time_cpt_rising[3] = cpt_us;
+    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
+    } else{
+    	us_dist[3] = ((float)(cpt_us - time_cpt_rising[2]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
+
+    	us_ended++;
+    	if (us_ended >= 3){
+        	cpt_us = 0;
+        	cpt_trigger = 0;
+    	}
     }
   }
 }
