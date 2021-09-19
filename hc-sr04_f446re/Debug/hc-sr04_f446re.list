@@ -1630,7 +1630,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  800117a:	681b      	ldr	r3, [r3, #0]
  800117c:	4a19      	ldr	r2, [pc, #100]	; (80011e4 <HAL_TIM_PeriodElapsedCallback+0x74>)
  800117e:	4293      	cmp	r3, r2
- 8001180:	d12b      	bne.n	80011da <HAL_TIM_PeriodElapsedCallback+0x6a>
+ 8001180:	d12c      	bne.n	80011dc <HAL_TIM_PeriodElapsedCallback+0x6c>
 		cpt_us++;
  8001182:	4b19      	ldr	r3, [pc, #100]	; (80011e8 <HAL_TIM_PeriodElapsedCallback+0x78>)
  8001184:	681b      	ldr	r3, [r3, #0]
@@ -1669,32 +1669,32 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80011b8:	f000 ff2a 	bl	8002010 <HAL_GPIO_WritePin>
 		}
 
-		if(us_ended < 4 && cpt_us >= 1000){
+		if(us_ended < 4 && cpt_us >= 10000){
  80011bc:	4b0d      	ldr	r3, [pc, #52]	; (80011f4 <HAL_TIM_PeriodElapsedCallback+0x84>)
  80011be:	781b      	ldrb	r3, [r3, #0]
  80011c0:	2b03      	cmp	r3, #3
- 80011c2:	d80a      	bhi.n	80011da <HAL_TIM_PeriodElapsedCallback+0x6a>
+ 80011c2:	d80b      	bhi.n	80011dc <HAL_TIM_PeriodElapsedCallback+0x6c>
  80011c4:	4b08      	ldr	r3, [pc, #32]	; (80011e8 <HAL_TIM_PeriodElapsedCallback+0x78>)
  80011c6:	681b      	ldr	r3, [r3, #0]
- 80011c8:	f5b3 7f7a 	cmp.w	r3, #1000	; 0x3e8
- 80011cc:	d305      	bcc.n	80011da <HAL_TIM_PeriodElapsedCallback+0x6a>
+ 80011c8:	f242 720f 	movw	r2, #9999	; 0x270f
+ 80011cc:	4293      	cmp	r3, r2
+ 80011ce:	d905      	bls.n	80011dc <HAL_TIM_PeriodElapsedCallback+0x6c>
 			cpt_us = 0;
- 80011ce:	4b06      	ldr	r3, [pc, #24]	; (80011e8 <HAL_TIM_PeriodElapsedCallback+0x78>)
- 80011d0:	2200      	movs	r2, #0
- 80011d2:	601a      	str	r2, [r3, #0]
+ 80011d0:	4b05      	ldr	r3, [pc, #20]	; (80011e8 <HAL_TIM_PeriodElapsedCallback+0x78>)
+ 80011d2:	2200      	movs	r2, #0
+ 80011d4:	601a      	str	r2, [r3, #0]
 			cpt_trigger = 0;
- 80011d4:	4b05      	ldr	r3, [pc, #20]	; (80011ec <HAL_TIM_PeriodElapsedCallback+0x7c>)
- 80011d6:	2200      	movs	r2, #0
- 80011d8:	601a      	str	r2, [r3, #0]
+ 80011d6:	4b05      	ldr	r3, [pc, #20]	; (80011ec <HAL_TIM_PeriodElapsedCallback+0x7c>)
+ 80011d8:	2200      	movs	r2, #0
+ 80011da:	601a      	str	r2, [r3, #0]
 		}
 	}
 
 }
- 80011da:	bf00      	nop
- 80011dc:	3708      	adds	r7, #8
- 80011de:	46bd      	mov	sp, r7
- 80011e0:	bd80      	pop	{r7, pc}
- 80011e2:	bf00      	nop
+ 80011dc:	bf00      	nop
+ 80011de:	3708      	adds	r7, #8
+ 80011e0:	46bd      	mov	sp, r7
+ 80011e2:	bd80      	pop	{r7, pc}
  80011e4:	40000800 	.word	0x40000800
  80011e8:	20000200 	.word	0x20000200
  80011ec:	200001fc 	.word	0x200001fc

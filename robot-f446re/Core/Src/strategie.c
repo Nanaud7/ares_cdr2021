@@ -11,36 +11,28 @@
 
 #include <strategie.h>
 
-int nb_points = 3;
+int nb_points = 2;
 
-CONSIGNE consigneBleu[3] = {
+CONSIGNE consigneBleu[2] = {
     {
-      .x = 125, .y = 1070, .dir = FORWARD, 
+      .x = 0, .y = 0, .dir = FORWARD,
       .pinces = { FALSE, FALSE, FALSE, FALSE },
       .bras = FALSE
     }, {
-      .x = 550, .y = 1070, .dir = FORWARD,
-      .pinces = { FALSE, FALSE, FALSE, FALSE },
-      .bras = FALSE
-    }, {
-      .x = 550, .y = 870, .dir = FORWARD,
+      .x = 1000, .y = 0, .dir = FORWARD,
       .pinces = { FALSE, FALSE, FALSE, FALSE },
       .bras = FALSE
     }
 };
 
-CONSIGNE consigneJaune[3] = {
-    {
-      .x = 2875, .y = 1070, .dir = BACKWARD, 
-      .pinces = { FALSE, FALSE, FALSE, FALSE },
-      .bras = FALSE
-    }, {
-      .x = 2400, .y = 1070, .dir = BACKWARD, 
-      .pinces = { FALSE, FALSE, FALSE, FALSE },
-      .bras = FALSE
-    }, {
-      .x = 2400, .y = 970, .dir = BACKWARD, 
-      .pinces = { FALSE, FALSE, FALSE, FALSE },
-      .bras = FALSE
-    }
+CONSIGNE consigneJaune[2] = {
+	    {
+	      .x = 0, .y = 0, .dir = FORWARD,
+	      .pinces = { FALSE, FALSE, FALSE, FALSE },
+	      .bras = FALSE
+	    }, {
+	      .x = 1000, .y = 0, .dir = FORWARD,
+	      .pinces = { FALSE, FALSE, FALSE, FALSE },
+	      .bras = FALSE
+	    }
 };

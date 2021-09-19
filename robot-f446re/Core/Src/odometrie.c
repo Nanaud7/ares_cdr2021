@@ -1,5 +1,4 @@
-#include <asservissement.h>
-
+#include <odometrie.h>
 
 int16_t getTickRight(){
 	return (int16_t)(CODEUR_D.Instance->CNT);

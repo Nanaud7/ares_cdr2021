@@ -1,0 +1,6 @@
+asserv.c:7:6:ASSERV_update	72	static
+asserv.c:50:8:robotControlSpeed	40	static
+asserv.c:55:9:controlRotation	40	static
+asserv.c:90:9:controlMove	48	static
+asserv.c:141:8:angleToZeroTwoPi	16	static
+asserv.c:145:8:angleToPiPi	16	static

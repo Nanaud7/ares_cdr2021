@@ -1,4 +1,4 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/asserv.h \
+Core/Src/asserv.o: ../Core/Src/asserv.c ../Core/Inc/asserv.h \
  ../Core/Inc/odometrie.h ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -33,12 +33,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/asserv.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/config.h ../Core/Inc/lidar.h ../Core/Inc/usart.h \
  ../Core/Inc/moteurs.h ../Core/Inc/DRV8825.h ../Core/Inc/config.h \
- ../Core/Inc/tim.h ../Core/Inc/gpio.h ../Core/Inc/strategie.h \
- ../Core/Inc/main.h ../Core/Inc/adc.h ../Core/Inc/gpio.h \
- ../Core/Inc/retarget.h ../Core/Inc/actionneurs.h ../Core/Inc/AX12.h \
- ../Core/Inc/usart.h ../Core/Inc/ihm.h ../Core/Inc/retarget.h \
- ../Core/Inc/HC-SR04.h ../Core/Inc/lidar.h ../Core/Inc/moteurs.h \
- ../Core/Inc/strategie.h
+ ../Core/Inc/tim.h ../Core/Inc/gpio.h ../Core/Inc/strategie.h
 
 ../Core/Inc/asserv.h:
 
@@ -125,31 +120,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/asserv.h \
 ../Core/Inc/tim.h:
 
 ../Core/Inc/gpio.h:
-
-../Core/Inc/strategie.h:
-
-../Core/Inc/main.h:
-
-../Core/Inc/adc.h:
-
-../Core/Inc/gpio.h:
-
-../Core/Inc/retarget.h:
-
-../Core/Inc/actionneurs.h:
-
-../Core/Inc/AX12.h:
-
-../Core/Inc/usart.h:
-
-../Core/Inc/ihm.h:
-
-../Core/Inc/retarget.h:
-
-../Core/Inc/HC-SR04.h:
-
-../Core/Inc/lidar.h:
-
-../Core/Inc/moteurs.h:
 
 ../Core/Inc/strategie.h:

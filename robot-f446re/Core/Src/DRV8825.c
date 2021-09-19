@@ -37,8 +37,7 @@ void DRV8825_setStart(Moteur* drv8825,uint8_t enable){
 }
 
 void DRV8825_moveMotorRPM(Moteur* drv8825,float rpm){
-	rpm = rpm/M_TO_S;
-	uint16_t f = PAS*rpm;
+	uint16_t f = (rpm / 60) * STEPS_PER_REV * MICROSTEPS;
 	DRV8825_setFrequency(drv8825, f);
 }
 

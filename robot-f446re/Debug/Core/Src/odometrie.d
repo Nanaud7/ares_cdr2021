@@ -1,5 +1,5 @@
-Core/Src/odometrie.o: ../Core/Src/odometrie.c \
- ../Core/Inc/asservissement.h ../Core/Inc/tim.h ../Core/Inc/main.h \
+Core/Src/odometrie.o: ../Core/Src/odometrie.c ../Core/Inc/odometrie.h \
+ ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -31,12 +31,9 @@ Core/Src/odometrie.o: ../Core/Src/odometrie.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/config.h ../Core/Inc/moteurs.h ../Core/Inc/DRV8825.h \
- ../Core/Inc/config.h ../Core/Inc/gpio.h ../Core/Inc/strategie.h \
- ../Core/Inc/lidar.h ../Core/Inc/usart.h ../Core/Inc/actionneurs.h \
- ../Core/Inc/AX12.h ../Core/Inc/usart.h ../Core/Inc/retarget.h
+ ../Core/Inc/config.h
 
-../Core/Inc/asservissement.h:
+../Core/Inc/odometrie.h:
 
 ../Core/Inc/tim.h:
 
@@ -105,25 +102,3 @@ Core/Src/odometrie.o: ../Core/Src/odometrie.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Core/Inc/config.h:
-
-../Core/Inc/moteurs.h:
-
-../Core/Inc/DRV8825.h:
-
-../Core/Inc/config.h:
-
-../Core/Inc/gpio.h:
-
-../Core/Inc/strategie.h:
-
-../Core/Inc/lidar.h:
-
-../Core/Inc/usart.h:
-
-../Core/Inc/actionneurs.h:
-
-../Core/Inc/AX12.h:
-
-../Core/Inc/usart.h:
-
-../Core/Inc/retarget.h:

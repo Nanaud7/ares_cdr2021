@@ -185,7 +185,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 		}
 
-		if(us_ended < 4 && cpt_us >= 1000){
+		if(us_ended < 4 && cpt_us >= 10000){
 			cpt_us = 0;
 			cpt_trigger = 0;
 		}

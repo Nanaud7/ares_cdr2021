@@ -15,6 +15,9 @@
 #define START 0
 #define STOP 1
 
+#define RAYON 51.45/2
+#define PAS 200
+
 
 typedef struct {
     uint16_t pin_DIR;

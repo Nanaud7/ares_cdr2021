@@ -18,6 +18,7 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <asserv.h>
 #include "main.h"
 #include "adc.h"
 #include "tim.h"
@@ -27,24 +28,21 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "retarget.h" // permet de printf()
 #include <string.h>
+#include "retarget.h" 			// Ajout de la fonction printf()
 
-#include "config.h" // Fichier de configuration
-#include "DRV8825.h"
-#include "moteurs.h"
-#include "AX12.h"
 #include "actionneurs.h"
-#include "asservissement.h"
-#include "strategie.h"
-#include "lidar.h"
+#include "asserv.h"
+#include "config.h" 			// Fichier de configuration
 #include "ihm.h"
-
+#include "HC-SR04.h"
+#include "lidar.h"
+#include "moteurs.h"
+#include "strategie.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -58,8 +56,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-int cptTempsMatch = 0;
-float g_ADCValue = 0;
+int cptTempsMatch = 0;	// Compteur temps match
+float g_ADCValue = 0;	// Tension mesurée tirette
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,7 +78,6 @@ int initSerials();
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -113,63 +110,67 @@ int main(void)
   MX_TIM2_Init();
   MX_ADC1_Init();
   MX_TIM6_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-
   initSerials();
 
   port_depart = BLEU;
   initStrategie();
 
-  initMoteurs();
+  Motor_Init();
   initPinces();
   initBras();
   initFlag();
+  initUltrasons();
 
   indexStrategie = 1; // Variable parcourant le tableau de stratégie
   initTimers();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-	float voltage = 0;
+  // Tirette
+  float voltage = 0;
+  do{
+	#if MODULE_TIRETTE
+	  HAL_ADC_Start(&hadc1);
+	  if (HAL_ADC_PollForConversion(&hadc1, 1000000) == HAL_OK)
+	  {
+		  g_ADCValue = HAL_ADC_GetValue(&hadc1);
+		  voltage = g_ADCValue * (3.3 / 4096.0);
+		  #if MODULE_DEBUG && DEBUG_TIRETTE
+		  	  printf("%f\r\n",voltage);
+		  #endif
+	  }
 
-	do{
-		#if MODULE_TIRETTE == TRUE
-			HAL_ADC_Start(&hadc1);
-			if (HAL_ADC_PollForConversion(&hadc1, 1000000) == HAL_OK)
-			{
-				g_ADCValue = HAL_ADC_GetValue(&hadc1);
-				voltage = g_ADCValue * (3.3 / 4096.0);
-				#if MODULE_DEBUG && DEBUG_TIRETTE
-					printf("%f\r\n",voltage);
-				#endif
-			}
+	  if((voltage < (float)TIRETTE_SEUIL) == TRUE && match_started == FALSE){
+		  match_started = TRUE;
+		  initStrategie();
+	  }
+	#else
+	match_started = TRUE;
 
-			if((voltage < (float)TIRETTE_SEUIL) == TRUE && match_started == FALSE){
-				match_started = TRUE;
-				initStrategie();
-			}
-		#else
-			match_started = TRUE;
-
-		#endif
-	}
-	while(match_started == FALSE);
-
-	#if MODULE_LIDAR
-		HAL_UART_Receive_IT(&huart5, (uint8_t*)&buff_lidar, 1);
 	#endif
+  } while(match_started == FALSE);
+  // Fin tirette
 
-	cptTempsMatch = 0;
+  #if MODULE_LIDAR
+  	  HAL_UART_Receive_IT(&huart5, (uint8_t*)&buff_lidar, 1);
+  #endif
 
-	while (1)
-	{
+  cptTempsMatch = 0;
+
+  while (1)
+  {
+	  #if MODULE_DEBUG
+	  	  debugUltrasons();
+	  	  HAL_Delay(100);
+	  #endif
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	}
+  }
   /* USER CODE END 3 */
 }
 
@@ -234,14 +235,20 @@ int initTimers(){
 	#endif
 
 	#if MODULE_ASSERVISSEMENT
-		HAL_TIM_Base_Start_IT(&htim2); // 15ms
+		HAL_TIM_Base_Start_IT(&htim2); 	// Period : 15ms
+	#endif
+
+	#if MODULE_ULTRASONS
+		HAL_TIM_Base_Start_IT(&htim4); 	// Period : 1us
+	#endif
+
+	#if MODULE_LIDAR
+		HAL_TIM_Base_Start_IT(&htim6); 	// Period : 10ms
 	#endif
 
 	#if MODULE_COMPTEUR
-		HAL_TIM_Base_Start_IT(&htim7); // 1sec
+		HAL_TIM_Base_Start_IT(&htim7); 	// Period : 1sec
 	#endif
-
-	HAL_TIM_Base_Start_IT(&htim6); // 10ms
 
 	return 0;
 }
@@ -254,6 +261,7 @@ int initSerials(){
 
 	/*
 	#if MODULE_LIDAR
+		// uart5 n'est plus initialisé ici
 		HAL_UART_Receive_IT(&huart5, (uint8_t*)&buff_lidar, 1);
 	#endif
 	*/
@@ -287,6 +295,26 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM2){
 		if(indexStrategie < nb_points && match_started == 1)
 			ASSERV_update(consigne[indexStrategie]);
+		printf("TIM2\r\n");
+	}
+
+	if(htim->Instance == TIM4){
+		cpt_shared++;
+		cpt_trigger++;
+		//printf("cpt_trigger = %ld\r\n", cpt_trigger);
+
+		if(cpt_trigger >= 0 && cpt_trigger < 10){
+			checkUltrasons();
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
+		}
+		else if(cpt_trigger >= 20) {
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
+		}
+
+		if(us_done < 4 && cpt_shared >= 5000){
+			cpt_shared = 0;
+			cpt_trigger = 0;
+		}
 	}
 
 	if(htim->Instance == TIM6){
@@ -313,7 +341,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			}
 
 			if (cptTempsMatch >= 98){
-				stopMoteurs();
+				Motor_Disable();
 				initBras();
 				initPinces();
 				match_started = 0;
@@ -343,7 +371,78 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
 			HAL_UART_Receive_IT(&huart4, (uint8_t*)&buff_ihm, 1);
 		}
 	}
+}
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if(GPIO_Pin == GPIO_PIN_1)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){
+    	time_rising[0] = cpt_shared;
+    	//printf("time_rising : %ld\r\n", time_rising);
+    } else{
+    	us_distance[0] = ((float)(cpt_shared - time_rising[0]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
+
+    	us_done++;
+    	if (us_done >= 3){
+        	cpt_shared = 0;
+        	cpt_trigger = 0;
+    	}
+
+    }
+  }
+
+  if(GPIO_Pin == GPIO_PIN_15)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)){
+    	time_rising[1] = cpt_shared;
+    	//printf("time_rising : %ld\r\n", time_rising);
+    } else{
+    	us_distance[1] = ((float)(cpt_shared - time_rising[1]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
+
+    	us_done++;
+    	if (us_done >= 3){
+        	cpt_shared = 0;
+        	cpt_trigger = 0;
+    	}
+    }
+  }
+
+  if(GPIO_Pin == GPIO_PIN_14)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)){
+    	time_rising[2] = cpt_shared;
+    	//printf("time_rising : %ld\r\n", time_rising);
+    } else{
+    	us_distance[2] = ((float)(cpt_shared - time_rising[2]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
+
+    	us_done++;
+    	if (us_done >= 3){
+        	cpt_shared = 0;
+        	cpt_trigger = 0;
+    	}
+    }
+  }
+
+  if(GPIO_Pin == GPIO_PIN_13)
+  {
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)){
+    	time_rising[3] = cpt_shared;
+    	//printf("time_rising : %ld\r\n", time_rising);
+    } else{
+    	us_distance[3] = ((float)(cpt_shared - time_rising[2]) * 0.034) / 2.0;
+    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
+
+    	us_done++;
+    	if (us_done >= 3){
+        	cpt_shared = 0;
+        	cpt_trigger = 0;
+    	}
+    }
+  }
 }
 
 /* USER CODE END 4 */

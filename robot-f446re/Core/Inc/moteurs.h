@@ -5,16 +5,19 @@
 #include "gpio.h"
 #include "tim.h"
 
-
 Moteur moteur_G;
 Moteur moteur_D;
 
-void initMoteurs();
-void runForward(float  speed);
-void runBackward(float speed);
-void stopMoteurs();
-void startMoteurs();
-void rotateG(float speed_L, float speed_R);
-void rotateD(float speed_L, float speed_R);
+// Prototypes
+uint8_t Motor_Init();
+uint8_t Motor_Enable();
+uint8_t Motor_Disable();
+uint8_t Motor_setSpeedLeft(float RPM);
+uint8_t Motor_setSpeedRight(float RPM);
+uint8_t Motor_setSpeed(float speed);
+uint8_t Motor_robotForward();
+uint8_t Motor_robotBackward();
+uint8_t Motor_robotRotLeft();
+uint8_t Motor_robotRotRight();
 
 #endif /* INC_MOTEUR_H_ */
