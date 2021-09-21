@@ -295,7 +295,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM2){
 		if(indexStrategie < nb_points && match_started == 1)
 			ASSERV_update(consigne[indexStrategie]);
-		printf("TIM2\r\n");
+		//printf("TIM2\r\n");
 	}
 
 	if(htim->Instance == TIM4){
@@ -311,9 +311,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 		}
 
-		if(us_done < 4 && cpt_shared >= 5000){
+		if(us_done_total < 4 && cpt_shared >= 5000){
 			cpt_shared = 0;
 			cpt_trigger = 0;
+
+			for(int i=0; i<NB_OF_US_SENSORS; i++){
+				us_done[i] = 0;
+			}
 		}
 	}
 
@@ -377,17 +381,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == GPIO_PIN_1)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) && us_done[0] == 0){
     	time_rising[0] = cpt_shared;
+    	us_done[0]++;
     	//printf("time_rising : %ld\r\n", time_rising);
-    } else{
+    } else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) && us_done[0] == 1){
     	us_distance[0] = ((float)(cpt_shared - time_rising[0]) * 0.034) / 2.0;
     	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
 
-    	us_done++;
-    	if (us_done >= 3){
+    	us_done_total++;
+    	if (us_done_total >= 3){
         	cpt_shared = 0;
         	cpt_trigger = 0;
+			for(int i=0; i<NB_OF_US_SENSORS; i++){
+				us_done[i] = 0;
+			}
     	}
 
     }
@@ -402,8 +410,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     	us_distance[1] = ((float)(cpt_shared - time_rising[1]) * 0.034) / 2.0;
     	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
 
-    	us_done++;
-    	if (us_done >= 3){
+    	us_done_total++;
+    	if (us_done_total >= 3){
         	cpt_shared = 0;
         	cpt_trigger = 0;
     	}
@@ -419,8 +427,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     	us_distance[2] = ((float)(cpt_shared - time_rising[2]) * 0.034) / 2.0;
     	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
 
-    	us_done++;
-    	if (us_done >= 3){
+    	us_done_total++;
+    	if (us_done_total >= 3){
         	cpt_shared = 0;
         	cpt_trigger = 0;
     	}
@@ -436,8 +444,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     	us_distance[3] = ((float)(cpt_shared - time_rising[2]) * 0.034) / 2.0;
     	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
 
-    	us_done++;
-    	if (us_done >= 3){
+    	us_done_total++;
+    	if (us_done_total >= 3){
         	cpt_shared = 0;
         	cpt_trigger = 0;
     	}

@@ -27,6 +27,8 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "retarget.h"
+
+#include "HC-SR04.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,12 +48,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint32_t cpt_trigger = 0;
-uint32_t cpt_us = 0;
-uint8_t us_ended = 0;
 
-uint32_t time_cpt_rising[4] = {0};
-double us_dist[4] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -103,14 +100,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  initUltrasons();
+
   while (1)
   {
-	  printf("dist us1 : %lf cm\r\n", us_dist[0]);
-	  printf("dist us2 : %lf cm\r\n", us_dist[1]);
-	  printf("dist us3 : %lf cm\r\n", us_dist[2]);
-	  printf("dist us4 : %lf cm\r\n", us_dist[3]);
-	  printf("\r\n");
-
+	  debugUltrasons();
 	  HAL_Delay(100);
     /* USER CODE END WHILE */
 
@@ -174,94 +169,53 @@ void SystemClock_Config(void)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance == TIM4){
-		cpt_us++;
-		cpt_trigger++;
-		//printf("cpt_trigger = %d\r\n", cpt_trigger);
+		cpt_us_global++;
 
-		if(cpt_trigger >= 0 && cpt_trigger < 10){
+		if(cpt_us_global >= 0 && cpt_us_global < 10){ // && stepUS == STEP_RESET
+//			HAL_GPIO_WritePin(Sensors[indexUS].Trigger_GPIO_Port,
+//					Sensors[indexUS].Trigger_GPIO_Port, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
 		}
-		else if(cpt_trigger >= 20) {
+		else {
+//			HAL_GPIO_WritePin(Sensors[indexUS].Trigger_GPIO_Port,
+//					Sensors[indexUS].Trigger_GPIO_Port, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
-		}
 
-		if(us_ended < 4 && cpt_us >= 10000){
-			cpt_us = 0;
-			cpt_trigger = 0;
+			if(stepUS == STEP_RESET) stepUS = STEP_TRIG;
 		}
+	}
+
+
+	if(cpt_us_global >= 10000){
+		cpt_us_global = 0;
+		distUS[indexUS]=999;
+		indexUS++;
+		if(indexUS >= NB_OF_US_SENSORS) indexUS = 0;
 	}
 
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  if(GPIO_Pin == GPIO_PIN_1)
+
+  if(GPIO_Pin == GPIO_PIN_1 && indexUS == US_FRONT_LEFT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){
-    	time_cpt_rising[0] = cpt_us;
-    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
-    } else{
-    	us_dist[0] = ((float)(cpt_us - time_cpt_rising[0]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
-
-    	us_ended++;
-    	if (us_ended >= 3){
-        	cpt_us = 0;
-        	cpt_trigger = 0;
-    	}
-
-    }
+	  processUltrasons(Sensors[US_FRONT_LEFT]);
   }
 
-  if(GPIO_Pin == GPIO_PIN_15)
+  if(GPIO_Pin == GPIO_PIN_15 && indexUS == US_FRONT_RIGHT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)){
-    	time_cpt_rising[1] = cpt_us;
-    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
-    } else{
-    	us_dist[1] = ((float)(cpt_us - time_cpt_rising[1]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
-
-    	us_ended++;
-    	if (us_ended >= 3){
-        	cpt_us = 0;
-        	cpt_trigger = 0;
-    	}
-    }
+	  processUltrasons(Sensors[US_FRONT_RIGHT]);
   }
 
-  if(GPIO_Pin == GPIO_PIN_14)
+  if(GPIO_Pin == GPIO_PIN_14 && indexUS == US_BACK_LEFT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)){
-    	time_cpt_rising[2] = cpt_us;
-    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
-    } else{
-    	us_dist[2] = ((float)(cpt_us - time_cpt_rising[2]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
-
-    	us_ended++;
-    	if (us_ended >= 3){
-        	cpt_us = 0;
-        	cpt_trigger = 0;
-    	}
-    }
+	  processUltrasons(Sensors[US_BACK_LEFT]);
   }
 
-  if(GPIO_Pin == GPIO_PIN_13)
+  if(GPIO_Pin == GPIO_PIN_13 && indexUS == US_BACK_RIGHT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)){
-    	time_cpt_rising[3] = cpt_us;
-    	//printf("time_cpt_rising : %ld\r\n", time_cpt_rising);
-    } else{
-    	us_dist[3] = ((float)(cpt_us - time_cpt_rising[2]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_cpt_rising - cpt_us);
-
-    	us_ended++;
-    	if (us_ended >= 3){
-        	cpt_us = 0;
-        	cpt_trigger = 0;
-    	}
-    }
+	  processUltrasons(Sensors[US_BACK_RIGHT]);
   }
 }
 

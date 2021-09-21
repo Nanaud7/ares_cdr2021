@@ -10,10 +10,11 @@
 // Variables
 long cpt_trigger;
 long cpt_shared;
-int us_done;
+int us_done_total;
 
 long time_rising[NB_OF_US_SENSORS];
 double us_distance[NB_OF_US_SENSORS];
+int us_done[NB_OF_US_SENSORS];
 
 // Prototypes
 uint8_t initUltrasons(void);

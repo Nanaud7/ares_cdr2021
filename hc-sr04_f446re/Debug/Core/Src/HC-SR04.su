@@ -1,0 +1,4 @@
+HC-SR04.c:23:9:initUltrasons	16	static
+HC-SR04.c:36:9:processUltrasons	16	static
+HC-SR04.c:58:9:checkUltrasons	4	static
+HC-SR04.c:72:9:debugUltrasons	56	static
