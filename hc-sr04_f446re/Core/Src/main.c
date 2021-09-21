@@ -183,14 +183,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 			if(stepUS == STEP_RESET) stepUS = STEP_TRIG;
 		}
-	}
 
-
-	if(cpt_us_global >= 10000){
-		cpt_us_global = 0;
-		distUS[indexUS]=999;
-		indexUS++;
-		if(indexUS >= NB_OF_US_SENSORS) indexUS = 0;
+		if(cpt_us_global >= 10000){
+			cpt_us_global = 0;
+			distUS[indexUS]=999;
+			indexUS++;
+			if(indexUS >= NB_OF_US_SENSORS) indexUS = 0;
+		}
 	}
 
 }

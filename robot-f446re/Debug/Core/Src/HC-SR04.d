@@ -1,5 +1,4 @@
 Core/Src/HC-SR04.o: ../Core/Src/HC-SR04.c ../Core/Inc/HC-SR04.h \
- ../Core/Inc/lidar.h ../Core/Inc/usart.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -31,15 +30,10 @@ Core/Src/HC-SR04.o: ../Core/Src/HC-SR04.c ../Core/Inc/HC-SR04.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Core/Inc/lidar.h ../Core/Inc/usart.h ../Core/Inc/main.h \
  ../Core/Inc/config.h
 
 ../Core/Inc/HC-SR04.h:
-
-../Core/Inc/lidar.h:
-
-../Core/Inc/usart.h:
-
-../Core/Inc/main.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -102,5 +96,11 @@ Core/Src/HC-SR04.o: ../Core/Src/HC-SR04.c ../Core/Inc/HC-SR04.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+
+../Core/Inc/lidar.h:
+
+../Core/Inc/usart.h:
+
+../Core/Inc/main.h:
 
 ../Core/Inc/config.h:

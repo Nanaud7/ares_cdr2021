@@ -71,12 +71,6 @@ typedef int bool;
 #define LIDAR_ARRAY_SIZE 9
 #define LIDAR_SEUIL 500
 
-// Config Ultrasons
-#define US_FRONT_RIGHT 3	// PB13
-#define US_FRONT_LEFT 0		// PB1
-#define US_BACK_RIGHT 2		// PB14
-#define US_BACK_LEFT 1		// PB15
-
 // Config Odométrie
 #define COEFF_CODEUR_L 0.0405726153
 #define COEFF_CODEUR_R 0.0403868872

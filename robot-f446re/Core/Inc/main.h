@@ -77,6 +77,8 @@ void Error_Handler(void);
 #define Echo1_EXTI_IRQn EXTI1_IRQn
 #define Trigger_Pin GPIO_PIN_2
 #define Trigger_GPIO_Port GPIOB
+#define TRIG3_Pin GPIO_PIN_12
+#define TRIG3_GPIO_Port GPIOB
 #define Echo4_Pin GPIO_PIN_13
 #define Echo4_GPIO_Port GPIOB
 #define Echo4_EXTI_IRQn EXTI15_10_IRQn
@@ -88,6 +90,8 @@ void Error_Handler(void);
 #define Echo2_EXTI_IRQn EXTI15_10_IRQn
 #define Tirette_Pin GPIO_PIN_8
 #define Tirette_GPIO_Port GPIOC
+#define TRIG2_Pin GPIO_PIN_11
+#define TRIG2_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14

@@ -18,7 +18,6 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <asserv.h>
 #include "main.h"
 #include "adc.h"
 #include "tim.h"
@@ -35,10 +34,10 @@
 #include "asserv.h"
 #include "config.h" 			// Fichier de configuration
 #include "ihm.h"
-#include "HC-SR04.h"
 #include "lidar.h"
 #include "moteurs.h"
 #include "strategie.h"
+#include "HC-SR04.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -299,27 +298,29 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 
 	if(htim->Instance == TIM4){
-		cpt_shared++;
-		cpt_trigger++;
-		//printf("cpt_trigger = %ld\r\n", cpt_trigger);
+		cpt_us_global++;
 
-		if(cpt_trigger >= 0 && cpt_trigger < 10){
-			checkUltrasons();
+		if(cpt_us_global >= 0 && cpt_us_global < 10){ // && stepUS == STEP_RESET
+//			HAL_GPIO_WritePin(Sensors[indexUS].Trigger_GPIO_Port,
+//					Sensors[indexUS].Trigger_GPIO_Port, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
 		}
-		else if(cpt_trigger >= 20) {
+		else {
+//			HAL_GPIO_WritePin(Sensors[indexUS].Trigger_GPIO_Port,
+//					Sensors[indexUS].Trigger_GPIO_Port, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
+
+			if(stepUS == STEP_RESET) stepUS = STEP_TRIG;
 		}
 
-		if(us_done_total < 4 && cpt_shared >= 5000){
-			cpt_shared = 0;
-			cpt_trigger = 0;
-
-			for(int i=0; i<NB_OF_US_SENSORS; i++){
-				us_done[i] = 0;
-			}
+		if(cpt_us_global >= 10000){
+			cpt_us_global = 0;
+			distUS[indexUS]=999;
+			indexUS++;
+			if(indexUS >= NB_OF_US_SENSORS) indexUS = 0;
 		}
 	}
+
 
 	if(htim->Instance == TIM6){
 		//printf("TIM6\r\n");
@@ -379,77 +380,25 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  if(GPIO_Pin == GPIO_PIN_1)
+
+  if(GPIO_Pin == GPIO_PIN_1 && indexUS == US_FRONT_LEFT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) && us_done[0] == 0){
-    	time_rising[0] = cpt_shared;
-    	us_done[0]++;
-    	//printf("time_rising : %ld\r\n", time_rising);
-    } else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) && us_done[0] == 1){
-    	us_distance[0] = ((float)(cpt_shared - time_rising[0]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
-
-    	us_done_total++;
-    	if (us_done_total >= 3){
-        	cpt_shared = 0;
-        	cpt_trigger = 0;
-			for(int i=0; i<NB_OF_US_SENSORS; i++){
-				us_done[i] = 0;
-			}
-    	}
-
-    }
+	  processUltrasons(Sensors[US_FRONT_LEFT]);
   }
 
-  if(GPIO_Pin == GPIO_PIN_15)
+  if(GPIO_Pin == GPIO_PIN_15 && indexUS == US_FRONT_RIGHT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)){
-    	time_rising[1] = cpt_shared;
-    	//printf("time_rising : %ld\r\n", time_rising);
-    } else{
-    	us_distance[1] = ((float)(cpt_shared - time_rising[1]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
-
-    	us_done_total++;
-    	if (us_done_total >= 3){
-        	cpt_shared = 0;
-        	cpt_trigger = 0;
-    	}
-    }
+	  processUltrasons(Sensors[US_FRONT_RIGHT]);
   }
 
-  if(GPIO_Pin == GPIO_PIN_14)
+  if(GPIO_Pin == GPIO_PIN_14 && indexUS == US_BACK_LEFT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)){
-    	time_rising[2] = cpt_shared;
-    	//printf("time_rising : %ld\r\n", time_rising);
-    } else{
-    	us_distance[2] = ((float)(cpt_shared - time_rising[2]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
-
-    	us_done_total++;
-    	if (us_done_total >= 3){
-        	cpt_shared = 0;
-        	cpt_trigger = 0;
-    	}
-    }
+	  processUltrasons(Sensors[US_BACK_LEFT]);
   }
 
-  if(GPIO_Pin == GPIO_PIN_13)
+  if(GPIO_Pin == GPIO_PIN_13 && indexUS == US_BACK_RIGHT)
   {
-    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)){
-    	time_rising[3] = cpt_shared;
-    	//printf("time_rising : %ld\r\n", time_rising);
-    } else{
-    	us_distance[3] = ((float)(cpt_shared - time_rising[2]) * 0.034) / 2.0;
-    	//printf("time_diff : %ld\r\n", time_rising - cpt_shared);
-
-    	us_done_total++;
-    	if (us_done_total >= 3){
-        	cpt_shared = 0;
-        	cpt_trigger = 0;
-    	}
-    }
+	  processUltrasons(Sensors[US_BACK_RIGHT]);
   }
 }
 
