@@ -145,6 +145,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE previous) {
         if((StopFront == TRUE && point.dir == FORWARD) || (StopBack == TRUE && point.dir == BACKWARD)){
         	speed = 0;
         	spin = 0;
+        	previous.x = g_x; previous.y = g_y;
         }
 
     	setMotors(speed - spin, speed + spin);

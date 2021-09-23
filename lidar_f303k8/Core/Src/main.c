@@ -18,14 +18,15 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "config.h"
 #include "main.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "config.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,15 +48,15 @@
 
 /* USER CODE BEGIN PV */
 VL53L0X_Struct vl53l0x[NB_OF_SENSORS];
-float results[NB_OF_SENSORS] = {0};
-//int results[NB_OF_SENSORS] = {0};
 AX12 ax12;
+uint8_t sens = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 int LIDAR_Main();
+int LIDAR_Main2();
 int LIDAR_SendDatas(float pos);
 /* USER CODE END PFP */
 
@@ -95,9 +96,12 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   RetargetInit(&huart1);
-  //printf("lidar_f303k8\r\n");
+  printf("lidar_f303k8\r\n");
+  HAL_TIM_Base_Start_IT(&htim3);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,16 +112,17 @@ int main(void)
   // Initialisation du capteur n°1
 #if NB_OF_SENSORS == 1
 	vl_xshut_init(&vl53l0x[0], GPIOB, GPIO_PIN_5); 			// XSHUT = PB5
+	//vl_xshut_init(&vl53l0x[0], GPIOB, GPIO_PIN_4); 			// XSHUT = PB4
     vl_sensors_init(&vl53l0x[0], &hi2c1, NB_OF_SENSORS);
 #endif
 #if NB_OF_SENSORS == 2
-    //HAL_Delay(500);
     vl_xshut_init(&vl53l0x[0], GPIOB, GPIO_PIN_5); 			// XSHUT = PB5
     vl_xshut_init(&vl53l0x[1], GPIOB, GPIO_PIN_4); 			// XSHUT = PB4
     vl_sensors_init(vl53l0x, &hi2c1, NB_OF_SENSORS);
-    //results[0] = 0;
-    //results[1] = 0;
 #endif
+
+    results[0] = 999;
+    results[1] = 999;
 
   ///// AX-12 /////
 #if AX12_ENABLE
@@ -132,16 +137,28 @@ int main(void)
 
   while (1)
     {
-	  #if IT_MODE == 0
-	  	  LIDAR_Main();
-
-	  #elif IT_MODE == 1
-	  	  printf("1: %f 2: %f\r\n", results[0], results[1]);
-  	  #endif
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+#if IT_MODE == 0
+	  LIDAR_Main();
+
+#elif IT_MODE == 1
+	  //printf("1: %d\r\n", results[0]);
+	  //printf("%d %d\r\n", results[0], results[1]);
+
+	  printf("L\n");
+
+	  if(results[0] < 400){
+			  printf("B\n");
+	  }
+
+	  if(results[1] < 400){
+			  printf("F\n");
+	  }
+  #endif
+
     }
   /* USER CODE END 3 */
 }
@@ -191,9 +208,42 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin == GPIO_PIN_3){
+		vl_clear_it_mask(&vl53l0x[1]);
+		results[1] = vl_perform_ranging_it(&vl53l0x[1]);
+
+		results[0] = vl_perform_ranging(&vl53l0x[0]);
+		//printf("1: %d 2: %d\r\n", results[0], results[1]);
+	}
+
+	/*
+	if(GPIO_Pin == GPIO_PIN_11){
+		//vl_clear_it_mask(&vl53l0x[0]);
+		//results[0] = vl_perform_ranging_it(&vl53l0x[0]);
+	}
+	*/
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	if(htim->Instance == TIM3){
+
+		#if AX12_ENABLE
+			if(sens == 0){
+				AX12_setPosition(&ax12, LIDAR_POS_MIN);
+				sens = 1;
+			}
+			else if(sens == 1){
+				AX12_setPosition(&ax12, LIDAR_POS_MAX);
+				sens = 0;
+			}
+			else sens = 0;
+		#endif
+	}
+}
+
 int LIDAR_Main(){
 	for(float k = LIDAR_POS_MIN+LIDAR_STEP; k <= LIDAR_POS_MAX; k += LIDAR_STEP){
-
 		for(int i=0; i<NB_OF_SENSORS; i++){
 			//results[i] = (float)vl_perform_ranging(&vl53l0x[i]);
 			results[i] = vl_perform_ranging(&vl53l0x[i]);
@@ -229,6 +279,28 @@ int LIDAR_Main(){
 	return 0;
 }
 
+int LIDAR_Main2(){
+	for(int j=0; j<1000; j++){
+		for(int i=0; i<NB_OF_SENSORS; i++){
+			//results[i] = (float)vl_perform_ranging(&vl53l0x[i]);
+			results[i] = vl_perform_ranging(&vl53l0x[i]);
+		}
+	}
+
+	AX12_setPosition(&ax12, LIDAR_POS_MIN);
+
+	for(int j=0; j<1000; j++){
+		for(int i=0; i<NB_OF_SENSORS; i++){
+			//results[i] = (float)vl_perform_ranging(&vl53l0x[i]);
+			results[i] = vl_perform_ranging(&vl53l0x[i]);
+		}
+	}
+
+	AX12_setPosition(&ax12, LIDAR_POS_MAX);
+
+	return 0;
+}
+
 int LIDAR_SendDatas(float pos){
 	#if NB_OF_SENSORS == 1
 			  printf("%f %f\r\n", pos, results[0]);
@@ -250,7 +322,6 @@ int LIDAR_SendDatas(float pos){
 
 	return 0;
 }
-
 
 /* USER CODE END 4 */
 

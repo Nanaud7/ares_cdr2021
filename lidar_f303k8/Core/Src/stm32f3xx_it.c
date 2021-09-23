@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include <config.h>
 #include "main.h"
 #include "stm32f3xx_it.h"
 /* Private includes ----------------------------------------------------------*/
@@ -57,7 +56,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-
+extern TIM_HandleTypeDef htim3;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -206,8 +205,8 @@ void SysTick_Handler(void)
 void EXTI3_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI3_IRQn 0 */
-	vl_clear_it_mask(&vl53l0x[1]);
-	results[1] = vl_perform_ranging_it(&vl53l0x[1]);
+	//vl_clear_it_mask(&vl53l0x[1]);
+	//results[1] = vl_perform_ranging_it(&vl53l0x[1]);
 	//printf("Sensor 1 : %d\r\n", vl_perform_ranging_it(&vl53l0x[1]));
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
@@ -217,13 +216,27 @@ void EXTI3_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM3 global interrupt.
+  */
+void TIM3_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_IRQn 0 */
+
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
+
+  /* USER CODE END TIM3_IRQn 1 */
+}
+
+/**
   * @brief This function handles EXTI line[15:10] interrupts.
   */
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-	vl_clear_it_mask(&vl53l0x[0]);
-	results[0] = vl_perform_ranging_it(&vl53l0x[0]);
+	//vl_clear_it_mask(&vl53l0x[0]);
+	//results[0] = vl_perform_ranging_it(&vl53l0x[0]);
 	//printf("Sensor 2 : %d\r\n", vl_perform_ranging_it(&vl53l0x[0]));
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);

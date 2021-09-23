@@ -33,16 +33,15 @@
 
 // VL53L0X
 #define NB_OF_SENSORS 2
-#define IT_MODE 1
+#define IT_MODE 0
 extern VL53L0X_Struct vl53l0x[NB_OF_SENSORS];
-//extern int results[NB_OF_SENSORS];
-extern float results[NB_OF_SENSORS];
+uint16_t results[2];
 
 // AX-12
 #define AX12_ENABLE 1
 
 #define LIDAR_STEP 10
-#define LIDAR_FOV 80
+#define LIDAR_FOV 100
 #define LIDAR_POS_MID 60
 #define LIDAR_POS_MIN LIDAR_POS_MID-(LIDAR_FOV/2)
 #define LIDAR_POS_MAX LIDAR_POS_MID+(LIDAR_FOV/2)

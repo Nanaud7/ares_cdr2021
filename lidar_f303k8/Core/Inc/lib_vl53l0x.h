@@ -15,7 +15,7 @@
 #include "vl53l0x_device.h"
 
 #define INTERRUPT_MODE 1
-#define TOGGLE_GPIO_TIME 20
+#define TOGGLE_GPIO_TIME 50
 
 // RANGE_PROFILE
 #define HIGH_ACCURACY 0

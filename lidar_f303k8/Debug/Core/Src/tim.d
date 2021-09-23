@@ -1,13 +1,4 @@
-Drivers/VL53L0X_API/core/src/vl53l0x_api_core.o: \
- ../Drivers/VL53L0X_API/core/src/vl53l0x_api_core.c \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
+Core/Src/tim.o: ../Core/Src/tim.c ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
  ../Core/Inc/stm32f3xx_hal_conf.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
@@ -36,25 +27,11 @@ Drivers/VL53L0X_API/core/src/vl53l0x_api_core.o: \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_core.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_calibration.h
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
+../Core/Inc/tim.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
+../Core/Inc/main.h:
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 
@@ -113,7 +90,3 @@ E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_core.h:
-
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_calibration.h:
