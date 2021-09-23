@@ -33,9 +33,10 @@
 
 // VL53L0X
 #define NB_OF_SENSORS 2
-#define IT_MODE 0
+#define IT_MODE 1
 extern VL53L0X_Struct vl53l0x[NB_OF_SENSORS];
-extern int results[NB_OF_SENSORS];
+//extern int results[NB_OF_SENSORS];
+extern float results[NB_OF_SENSORS];
 
 // AX-12
 #define AX12_ENABLE 1

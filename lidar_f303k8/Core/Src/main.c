@@ -47,8 +47,8 @@
 
 /* USER CODE BEGIN PV */
 VL53L0X_Struct vl53l0x[NB_OF_SENSORS];
-//float results[NB_OF_SENSORS] = {0};
-int results[NB_OF_SENSORS] = {0};
+float results[NB_OF_SENSORS] = {0};
+//int results[NB_OF_SENSORS] = {0};
 AX12 ax12;
 /* USER CODE END PV */
 
@@ -111,9 +111,12 @@ int main(void)
     vl_sensors_init(&vl53l0x[0], &hi2c1, NB_OF_SENSORS);
 #endif
 #if NB_OF_SENSORS == 2
+    //HAL_Delay(500);
     vl_xshut_init(&vl53l0x[0], GPIOB, GPIO_PIN_5); 			// XSHUT = PB5
     vl_xshut_init(&vl53l0x[1], GPIOB, GPIO_PIN_4); 			// XSHUT = PB4
     vl_sensors_init(vl53l0x, &hi2c1, NB_OF_SENSORS);
+    //results[0] = 0;
+    //results[1] = 0;
 #endif
 
   ///// AX-12 /////

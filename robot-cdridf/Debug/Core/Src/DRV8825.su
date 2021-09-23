@@ -1,0 +1,6 @@
+DRV8825.c:3:6:DRV8825_init	24	static
+DRV8825.c:30:6:DRV8825_setDir	16	static
+DRV8825.c:35:6:DRV8825_setStart	16	static
+DRV8825.c:39:6:DRV8825_moveMotorRPM	24	static
+DRV8825.c:45:6:DRV8825_moveMotorLineSpeed	24	static
+DRV8825.c:51:6:DRV8825_setFrequency	16	static

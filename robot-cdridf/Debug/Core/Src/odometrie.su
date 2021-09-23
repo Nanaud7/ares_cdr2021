@@ -1,0 +1,10 @@
+odometrie.c:4:9:getTickRight	4	static
+odometrie.c:8:9:getTickLeft	4	static
+odometrie.c:12:6:resetTickRight	4	static
+odometrie.c:16:6:resetTickLeft	4	static
+odometrie.c:20:6:ODO_odometrie	24	static
+odometrie.c:49:6:ODO_setX	16	static
+odometrie.c:53:6:ODO_setY	16	static
+odometrie.c:57:6:ODO_setPosition	24	static
+odometrie.c:62:6:ODO_setAngle	16	static
+odometrie.c:66:6:ODO_setPositionOrientation	32	static

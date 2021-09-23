@@ -1,0 +1,2 @@
+lidar.c:3:6:getLidarData	16	static
+lidar.c:40:6:getLidarData2	16	static

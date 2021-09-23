@@ -1,0 +1,5 @@
+asservissement.c:20:8:toZeroOne	16	static
+asservissement.c:31:8:toZeroTwoPi	16	static
+asservissement.c:40:8:optimalAngle	16	static
+asservissement.c:49:8:speedCurve1	32	static
+asservissement.c:69:6:ASSERV_update2	288	static
