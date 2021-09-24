@@ -41,7 +41,8 @@ void ODO_setAngle(double angle);
 void ODO_setPositionOrientation(double x, double y, double angle);
 
 /* Prototypes */
-void ASSERV_update2(CONSIGNE point, CONSIGNE previous);
+//void ASSERV_update2(CONSIGNE point, CONSIGNE previous);
+void ASSERV_update2(CONSIGNE point, CONSIGNE* previous);
 void ASSERV_reset();
 
 #endif /* ASSERVISSEMENT_H_ */

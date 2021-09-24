@@ -66,7 +66,7 @@ double speedCurve1(double progress) {
  * @param point Le point visé.
  * @param point Le point où le robot commence son déplacement.
  */
-void ASSERV_update2(CONSIGNE point, CONSIGNE previous) {
+void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
     if (indexStrategie >= nb_points || !match_started) {
     	//stopMoteurs();
     	setMotors(0, 0);
@@ -77,16 +77,18 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE previous) {
 
     // calculs préliminaires
     double pointDistance = sqrt(pow(point.x - g_x, 2) + pow(point.y - g_y, 2));
-    double previousDistance = sqrt(pow(previous.x - g_x, 2) + pow(previous.y - g_y, 2));
-    double segmentLength = sqrt(pow(point.x - previous.x, 2) + pow(point.y - previous.y, 2));
+    double previousDistance = sqrt(pow(previous->x - g_x, 2) + pow(previous->y - g_y, 2));
+    double segmentLength = sqrt(pow(point.x - previous->x, 2) + pow(point.y - previous->y, 2));
     double moveProgress = toZeroOne(previousDistance/segmentLength);
     if (segmentLength == 0) moveProgress = 1; // pour éviter NaN en cas de divison par zéro
+
+    //printf("%f %f %f\r\n",previousDistance, previous->x, moveProgress);
 
     // point à viser (je peux t'expliquer IRL, en commentaire ça passe pas mdr)
     double t = 1.1 - (1 - moveProgress)*0.6;
     CONSIGNE subAimPoint = {
-    	x: (1-t)*previous.x + t*point.x,
-		y: (1-t)*previous.y + t*point.y
+    	x: (1-t)*previous->x + t*point.x,
+		y: (1-t)*previous->y + t*point.y
     };
 
     double pointDirection = atan2(subAimPoint.y - g_y, subAimPoint.x - g_x);
@@ -145,7 +147,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE previous) {
         if((StopFront == TRUE && point.dir == FORWARD) || (StopBack == TRUE && point.dir == BACKWARD)){
         	speed = 0;
         	spin = 0;
-        	previous.x = g_x; previous.y = g_y;
+        	previous->x = g_x; previous->y = g_y;
         }
 
     	setMotors(speed - spin, speed + spin);

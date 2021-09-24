@@ -150,11 +150,11 @@ int main(void)
 
 	  printf("L\n");
 
-	  if(results[0] < 400){
+	  if(results[0] < 350){
 			  printf("B\n");
 	  }
 
-	  if(results[1] < 400){
+	  if(results[1] < 350){
 			  printf("F\n");
 	  }
   #endif
@@ -311,11 +311,11 @@ int LIDAR_SendDatas(float pos){
 			  //printf("%f %f %f\n", pos, results[0], results[1]);
 			  //printf("%d %d %d\n", (int)pos, (int)results[0], (int)results[1]);
 
-			  if(results[0] < 400){
+			  if(results[0] < 350){
 					  printf("B\n");
 			  }
 
-			  if(results[1] < 400){
+			  if(results[1] < 350){
 					  printf("F\n");
 			  }
 	#endif

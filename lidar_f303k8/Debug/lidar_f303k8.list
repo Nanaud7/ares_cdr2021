@@ -2386,20 +2386,20 @@ int LIDAR_SendDatas(float pos){
 			  //printf("%f %f %f\n", pos, results[0], results[1]);
 			  //printf("%d %d %d\n", (int)pos, (int)results[0], (int)results[1]);
 
-			  if(results[0] < 400){
+			  if(results[0] < 350){
  800148a:	4b0a      	ldr	r3, [pc, #40]	; (80014b4 <LIDAR_SendDatas+0x34>)
  800148c:	881b      	ldrh	r3, [r3, #0]
- 800148e:	f5b3 7fc8 	cmp.w	r3, #400	; 0x190
+ 800148e:	f5b3 7faf 	cmp.w	r3, #350	; 0x15e
  8001492:	d202      	bcs.n	800149a <LIDAR_SendDatas+0x1a>
 					  printf("B\n");
  8001494:	4808      	ldr	r0, [pc, #32]	; (80014b8 <LIDAR_SendDatas+0x38>)
  8001496:	f009 fe61 	bl	800b15c <puts>
 			  }
 
-			  if(results[1] < 400){
+			  if(results[1] < 350){
  800149a:	4b06      	ldr	r3, [pc, #24]	; (80014b4 <LIDAR_SendDatas+0x34>)
  800149c:	885b      	ldrh	r3, [r3, #2]
- 800149e:	f5b3 7fc8 	cmp.w	r3, #400	; 0x190
+ 800149e:	f5b3 7faf 	cmp.w	r3, #350	; 0x15e
  80014a2:	d202      	bcs.n	80014aa <LIDAR_SendDatas+0x2a>
 					  printf("F\n");
  80014a4:	4805      	ldr	r0, [pc, #20]	; (80014bc <LIDAR_SendDatas+0x3c>)

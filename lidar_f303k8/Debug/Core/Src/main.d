@@ -31,16 +31,16 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h ../Core/Inc/tim.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h ../Core/Inc/config.h \
  ../Core/Inc/retarget.h ../Core/Inc/lib_vl53l0x.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
- E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/AX-12/servoAX12.h
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h \
+ C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/AX-12/servoAX12.h
 
 ../Core/Inc/main.h:
 
@@ -118,22 +118,22 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Core/Inc/lib_vl53l0x.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_api_strings.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_types.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_def.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/platform/inc/vl53l0x_platform_log.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/VL53L0X_API/core/inc/vl53l0x_device.h:
 
-E:/Git\ folder/ares_cdr2021/lidar_f303k8/Drivers/AX-12/servoAX12.h:
+C:/Git\ Folder/ares_cdr2021/lidar_f303k8/Drivers/AX-12/servoAX12.h:

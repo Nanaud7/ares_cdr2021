@@ -297,7 +297,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 	if(htim->Instance == TIM2){
 		if(indexStrategie < nb_points && match_started == 1)
-			ASSERV_update2(consigne[indexStrategie], consigne[indexStrategie-1]);
+			//ASSERV_update2(consigne[indexStrategie], consigne[indexStrategie-1]);
+			ASSERV_update2(consigne[indexStrategie], &consigne[indexStrategie-1]);
 	}
 
 	if(htim->Instance == TIM4){
