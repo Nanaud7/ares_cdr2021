@@ -2282,7 +2282,7 @@ int LIDAR_Main(){
  80013be:	482d      	ldr	r0, [pc, #180]	; (8001474 <LIDAR_Main+0x100>)
  80013c0:	f000 fc12 	bl	8001be8 <AX12_setPosition>
 			HAL_Delay(LIDAR_STEP_WAIT);
- 80013c4:	2032      	movs	r0, #50	; 0x32
+ 80013c4:	203c      	movs	r0, #60	; 0x3c
  80013c6:	f000 fe0b 	bl	8001fe0 <HAL_Delay>
 	for(float k = LIDAR_POS_MIN+LIDAR_STEP; k <= LIDAR_POS_MAX; k += LIDAR_STEP){
  80013ca:	edd7 7a03 	vldr	s15, [r7, #12]
@@ -2339,7 +2339,7 @@ int LIDAR_Main(){
  8001430:	4810      	ldr	r0, [pc, #64]	; (8001474 <LIDAR_Main+0x100>)
  8001432:	f000 fbd9 	bl	8001be8 <AX12_setPosition>
 			HAL_Delay(LIDAR_STEP_WAIT);
- 8001436:	2032      	movs	r0, #50	; 0x32
+ 8001436:	203c      	movs	r0, #60	; 0x3c
  8001438:	f000 fdd2 	bl	8001fe0 <HAL_Delay>
 	for(float k = LIDAR_POS_MAX-LIDAR_STEP; k >= LIDAR_POS_MIN; k -= LIDAR_STEP){
  800143c:	edd7 7a01 	vldr	s15, [r7, #4]
@@ -2386,20 +2386,20 @@ int LIDAR_SendDatas(float pos){
 			  //printf("%f %f %f\n", pos, results[0], results[1]);
 			  //printf("%d %d %d\n", (int)pos, (int)results[0], (int)results[1]);
 
-			  if(results[0] < 350){
+			  if(results[0] < 400){
  800148a:	4b0a      	ldr	r3, [pc, #40]	; (80014b4 <LIDAR_SendDatas+0x34>)
  800148c:	881b      	ldrh	r3, [r3, #0]
- 800148e:	f5b3 7faf 	cmp.w	r3, #350	; 0x15e
+ 800148e:	f5b3 7fc8 	cmp.w	r3, #400	; 0x190
  8001492:	d202      	bcs.n	800149a <LIDAR_SendDatas+0x1a>
 					  printf("B\n");
  8001494:	4808      	ldr	r0, [pc, #32]	; (80014b8 <LIDAR_SendDatas+0x38>)
  8001496:	f009 fe61 	bl	800b15c <puts>
 			  }
 
-			  if(results[1] < 350){
+			  if(results[1] < 400){
  800149a:	4b06      	ldr	r3, [pc, #24]	; (80014b4 <LIDAR_SendDatas+0x34>)
  800149c:	885b      	ldrh	r3, [r3, #2]
- 800149e:	f5b3 7faf 	cmp.w	r3, #350	; 0x15e
+ 800149e:	f5b3 7fc8 	cmp.w	r3, #400	; 0x190
  80014a2:	d202      	bcs.n	80014aa <LIDAR_SendDatas+0x2a>
 					  printf("F\n");
  80014a4:	4805      	ldr	r0, [pc, #20]	; (80014bc <LIDAR_SendDatas+0x3c>)

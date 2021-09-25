@@ -46,6 +46,6 @@ uint16_t results[2];
 #define LIDAR_POS_MIN LIDAR_POS_MID-(LIDAR_FOV/2)
 #define LIDAR_POS_MAX LIDAR_POS_MID+(LIDAR_FOV/2)
 
-#define LIDAR_STEP_WAIT 50 //
+#define LIDAR_STEP_WAIT 60 //
 
 #endif /* INC_CONFIG_H_ */

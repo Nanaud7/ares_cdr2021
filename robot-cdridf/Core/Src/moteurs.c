@@ -58,6 +58,8 @@ void rotateD(float speed_L, float speed_R){
 }
 
 void setMotors(double left, double right) {
+	#if MODULE_MOTEURS
+
     // vitesses absolues
     DRV8825_moveMotorLineSpeed(&moteur_G, fabs(left));
     DRV8825_moveMotorLineSpeed(&moteur_D, fabs(right));
@@ -71,4 +73,6 @@ void setMotors(double left, double right) {
         stopMoteurs();
     else
     	startMoteurs();
+
+	#endif
 }

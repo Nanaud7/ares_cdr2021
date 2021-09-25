@@ -170,8 +170,15 @@ int main(void)
 	while (1)
 	{
 		#if MODULE_DEBUG
+			#if DEBUG_ULTRASONS
 			  debugUltrasons();
 			  HAL_Delay(50);
+			#endif
+
+			#if DEBUG_LIDAR
+			  //printf("Lidar %d %d\r\n", StopFront, StopBack);
+			  HAL_Delay(50);
+			#endif
 		#endif
     /* USER CODE END WHILE */
 
@@ -331,11 +338,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		cpt_front++;
 		//printf("cpt_front = %d\r\n",cpt_front);
 
-		if (cpt_back > 150){
+		if (cpt_back > 100){
 			StopBack = 0;
 		}
 
-		if (cpt_front > 150){
+		if (cpt_front > 100){
 			StopFront = 0;
 		}
 	}

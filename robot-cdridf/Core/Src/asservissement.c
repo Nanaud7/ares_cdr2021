@@ -5,7 +5,7 @@
 
 #define VMAX_RECT 10 // 10 c'est pas mal
 #define VMIN_DISTANCE 0.5
-#define VMAX_ROTATION 5
+#define VMAX_ROTATION 8
 #define VMIN_ROTATION 0.1
 
 double initialAngleError = 0;
@@ -125,7 +125,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
     	double speed = VMAX_RECT*speedCurve1(moveProgress);
 
     	// aller plus vite sur les longs segments
-    	speed *= toZeroOne(segmentLength/1000);
+    	speed *= toZeroOne(0.2 + segmentLength/1000);
 
     	// ralentir si l'angle est mauvais
     	speed *= 1/(1+pow(fabs(angleError/VALID_ANGLE/5), 2));
@@ -147,9 +147,11 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
         if((StopFront == TRUE && point.dir == FORWARD) || (StopBack == TRUE && point.dir == BACKWARD)){
         	speed = 0;
         	spin = 0;
-        	previous->x = g_x; previous->y = g_y;
+        	//previous->x = g_x; previous->y = g_y;
         }
 
+        //
+        //printf("%f %f\r\n", speed, spin);
     	setMotors(speed - spin, speed + spin);
     } else {
         // le robot est arrivé au point visé

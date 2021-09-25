@@ -13,7 +13,7 @@ typedef int bool;
 #define MODULE_ACTIONNEURS 1
 #define MODULE_ASSERVISSEMENT 1
 #define MODULE_COMPTEUR 1
-#define MODULE_DEBUG 1
+#define MODULE_DEBUG 0
 #define MODULE_IHM 1
 #define MODULE_LIDAR 1
 #define MODULE_MOTEURS 1
@@ -25,13 +25,13 @@ typedef int bool;
 /* Module actionneurs */
 #define ANGLE_STARTUP 110
 
-#define ANGLE_PINCE_RELEASE 22
+#define ANGLE_PINCE_RELEASE 30
 #define ANGLE_PINCE_CATCH 5
 
 #define ANGLE_FLAG_REPOS 96 // 105
 #define ANGLE_FLAG_DEPLOY 15
 
-#define ANGLE_BRAS_RAISE 110
+#define ANGLE_BRAS_RAISE 90
 #define ANGLE_BRAS_DEPLOY 50 // 10
 
 /* Module asservissement */
@@ -95,7 +95,7 @@ typedef int bool;
 
 
 /* Module tirette*/
-#define TIRETTE_SEUIL 2.90 // 3.05
+#define TIRETTE_SEUIL 3.15 // 3.05
 
 
 /* Autres */

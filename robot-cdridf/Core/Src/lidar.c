@@ -41,7 +41,7 @@ void getLidarData2(){
 	char header = lidarRawData[0];
 
 	#if MODULE_DEBUG == 1 && DEBUG_LIDAR
-	printf("header = %c\r\n", header);
+	printf("%c\r\n", header);
 	#endif
 
 	switch(header){

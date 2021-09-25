@@ -71,11 +71,11 @@ void lowerFlag(){
 void initBras(){
 	AX12_Init(&bras,&huart3,4,BR_250K);
 	AX12_setMaxTorque(&bras,100);
-	AX12_setRangeAngle(&bras, 0,ANGLE_STARTUP);
+	AX12_setRangeAngle(&bras, 0,ANGLE_BRAS_RAISE);
 	AX12_setMovingSpeed(&bras, 80);
 	AX12_TorqueE_D(&bras,TRUE);
 	HAL_Delay(250);
-	AX12_setPosition(&bras, ANGLE_STARTUP);
+	AX12_setPosition(&bras, ANGLE_BRAS_RAISE);
 	HAL_Delay(250);
 }
 
