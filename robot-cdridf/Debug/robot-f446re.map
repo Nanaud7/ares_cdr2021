@@ -5811,17 +5811,18 @@ LOAD c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000000800192c       0x1c Core/Src/actionneurs.o
                 0x000000000800192c                raiseBras
  .text.deployBras
-                0x0000000008001948       0x1c Core/Src/actionneurs.o
+                0x0000000008001948       0x18 Core/Src/actionneurs.o
                 0x0000000008001948                deployBras
  .text.MX_ADC1_Init
-                0x0000000008001964       0xa4 Core/Src/adc.o
-                0x0000000008001964                MX_ADC1_Init
+                0x0000000008001960       0xa4 Core/Src/adc.o
+                0x0000000008001960                MX_ADC1_Init
  .text.HAL_ADC_MspInit
-                0x0000000008001a08       0x88 Core/Src/adc.o
-                0x0000000008001a08                HAL_ADC_MspInit
+                0x0000000008001a04       0x88 Core/Src/adc.o
+                0x0000000008001a04                HAL_ADC_MspInit
  .text.toZeroOne
-                0x0000000008001a90       0x60 Core/Src/asservissement.o
-                0x0000000008001a90                toZeroOne
+                0x0000000008001a8c       0x60 Core/Src/asservissement.o
+                0x0000000008001a8c                toZeroOne
+ *fill*         0x0000000008001aec        0x4 
  .text.toZeroTwoPi
                 0x0000000008001af0       0x60 Core/Src/asservissement.o
                 0x0000000008001af0                toZeroTwoPi
@@ -6767,7 +6768,7 @@ LOAD c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000000800da40                . = ALIGN (0x4)
                 0x000000000800da40                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0xc08 load address 0x000000000800da40
+.data           0x0000000020000000      0xae8 load address 0x000000000800da40
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -6779,152 +6780,152 @@ LOAD c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000020000004        0x4 Core/Src/strategie.o
                 0x0000000020000004                nb_points
  .data.consigneBleu
-                0x0000000020000008      0x510 Core/Src/strategie.o
+                0x0000000020000008      0x480 Core/Src/strategie.o
                 0x0000000020000008                consigneBleu
  .data.consigneJaune
-                0x0000000020000518      0x510 Core/Src/strategie.o
-                0x0000000020000518                consigneJaune
+                0x0000000020000488      0x480 Core/Src/strategie.o
+                0x0000000020000488                consigneJaune
  .data.SystemCoreClock
-                0x0000000020000a28        0x4 Core/Src/system_stm32f4xx.o
-                0x0000000020000a28                SystemCoreClock
+                0x0000000020000908        0x4 Core/Src/system_stm32f4xx.o
+                0x0000000020000908                SystemCoreClock
  .data.uwTickPrio
-                0x0000000020000a2c        0x4 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
-                0x0000000020000a2c                uwTickPrio
+                0x000000002000090c        0x4 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+                0x000000002000090c                uwTickPrio
  .data.uwTickFreq
-                0x0000000020000a30        0x1 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
-                0x0000000020000a30                uwTickFreq
- *fill*         0x0000000020000a31        0x3 
+                0x0000000020000910        0x1 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+                0x0000000020000910                uwTickFreq
+ *fill*         0x0000000020000911        0x3 
  .data._impure_ptr
-                0x0000000020000a34        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
-                0x0000000020000a34                _impure_ptr
+                0x0000000020000914        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x0000000020000914                _impure_ptr
  .data.impure_data
-                0x0000000020000a38       0x60 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x0000000020000918       0x60 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
  .data.__global_locale
-                0x0000000020000a98      0x16c c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-locale.o)
-                0x0000000020000a98                __global_locale
+                0x0000000020000978      0x16c c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-locale.o)
+                0x0000000020000978                __global_locale
  .data.__fdlib_version
-                0x0000000020000c04        0x1 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-s_lib_ver.o)
-                0x0000000020000c04                __fdlib_version
-                0x0000000020000c08                . = ALIGN (0x4)
- *fill*         0x0000000020000c05        0x3 
-                0x0000000020000c08                _edata = .
+                0x0000000020000ae4        0x1 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-s_lib_ver.o)
+                0x0000000020000ae4                __fdlib_version
+                0x0000000020000ae8                . = ALIGN (0x4)
+ *fill*         0x0000000020000ae5        0x3 
+                0x0000000020000ae8                _edata = .
 
-.igot.plt       0x0000000020000c08        0x0 load address 0x000000000800e648
- .igot.plt      0x0000000020000c08        0x0 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0000000020000c08                . = ALIGN (0x4)
+.igot.plt       0x0000000020000ae8        0x0 load address 0x000000000800e528
+ .igot.plt      0x0000000020000ae8        0x0 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0000000020000ae8                . = ALIGN (0x4)
 
-.bss            0x0000000020000c08      0x5d8 load address 0x000000000800e648
-                0x0000000020000c08                _sbss = .
-                0x0000000020000c08                __bss_start__ = _sbss
+.bss            0x0000000020000ae8      0x5d8 load address 0x000000000800e528
+                0x0000000020000ae8                _sbss = .
+                0x0000000020000ae8                __bss_start__ = _sbss
  *(.bss)
- .bss           0x0000000020000c08       0x1c c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss           0x0000000020000ae8       0x1c c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.bss*)
- *fill*         0x0000000020000c24        0x4 
+ *fill*         0x0000000020000b04        0x4 
  .bss.initialAngleError
-                0x0000000020000c28        0x8 Core/Src/asservissement.o
-                0x0000000020000c28                initialAngleError
+                0x0000000020000b08        0x8 Core/Src/asservissement.o
+                0x0000000020000b08                initialAngleError
  .bss.isRotating
-                0x0000000020000c30        0x4 Core/Src/asservissement.o
-                0x0000000020000c30                isRotating
+                0x0000000020000b10        0x4 Core/Src/asservissement.o
+                0x0000000020000b10                isRotating
  .bss.cptTempsMatch
-                0x0000000020000c34        0x4 Core/Src/main.o
-                0x0000000020000c34                cptTempsMatch
+                0x0000000020000b14        0x4 Core/Src/main.o
+                0x0000000020000b14                cptTempsMatch
  .bss.g_ADCValue
-                0x0000000020000c38        0x4 Core/Src/main.o
-                0x0000000020000c38                g_ADCValue
+                0x0000000020000b18        0x4 Core/Src/main.o
+                0x0000000020000b18                g_ADCValue
  .bss.heap_end.6585
-                0x0000000020000c3c        0x4 Core/Src/sysmem.o
+                0x0000000020000b1c        0x4 Core/Src/sysmem.o
  .bss.__malloc_free_list
-                0x0000000020000c40        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000000020000c40                __malloc_free_list
+                0x0000000020000b20        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000020000b20                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x0000000020000c44        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000000020000c44                __malloc_sbrk_start
+                0x0000000020000b24        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000020000b24                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x0000000020000c48        0x8 Core/Src/DRV8825.o
-                0x0000000020000c48                port_depart
-                0x0000000020000c4c                match_started
- COMMON         0x0000000020000c50       0xc2 Core/Src/HC-SR04.o
-                0x0000000020000c50                lidarAlarmBack
-                0x0000000020000c74                lidarRawData
-                0x0000000020000cb4                cpt_front
-                0x0000000020000cb8                distUS
-                0x0000000020000cc8                stepUS
-                0x0000000020000ccc                lidarData
-                0x0000000020000cd8                lidarAlarmFront
-                0x0000000020000cfc                indexUS
-                0x0000000020000d00                StopFront
-                0x0000000020000d04                cpt_back
-                0x0000000020000d08                cpt_us_global
-                0x0000000020000d0a                buff_lidar
-                0x0000000020000d0c                StopBack
-                0x0000000020000d10                save_cpt_rising
- *fill*         0x0000000020000d12        0x2 
- COMMON         0x0000000020000d14       0x34 Core/Src/actionneurs.o
-                0x0000000020000d14                bras
-                0x0000000020000d1c                flag
-                0x0000000020000d24                pinces
-                0x0000000020000d44                consigne
- COMMON         0x0000000020000d48       0x48 Core/Src/adc.o
-                0x0000000020000d48                hadc1
- COMMON         0x0000000020000d90       0x60 Core/Src/asservissement.o
-                0x0000000020000d90                g_x
-                0x0000000020000d98                g_angle
-                0x0000000020000da0                dAngle
-                0x0000000020000da8                moteur_D
-                0x0000000020000dc0                moteur_G
-                0x0000000020000dd8                indexStrategie
-                0x0000000020000de0                g_y
-                0x0000000020000de8                dDistance
- COMMON         0x0000000020000df0       0x44 Core/Src/ihm.o
-                0x0000000020000df0                buff_ihm
-                0x0000000020000df4                ihmRawData
- COMMON         0x0000000020000e34        0x4 Core/Src/retarget.o
-                0x0000000020000e34                gHuart
- COMMON         0x0000000020000e38      0x240 Core/Src/tim.o
-                0x0000000020000e38                htim8
-                0x0000000020000e80                htim4
-                0x0000000020000ec8                htim3
-                0x0000000020000f10                htim11
-                0x0000000020000f58                htim6
-                0x0000000020000fa0                htim1
-                0x0000000020000fe8                htim2
-                0x0000000020001030                htim7
- COMMON         0x0000000020001078      0x154 Core/Src/usart.o
-                0x0000000020001078                huart3
-                0x00000000200010bc                huart5
-                0x0000000020001100                huart1
-                0x0000000020001144                huart4
-                0x0000000020001188                huart2
- COMMON         0x00000000200011cc        0x4 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
-                0x00000000200011cc                uwTick
- COMMON         0x00000000200011d0        0x9 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
-                0x00000000200011d0                __lock___atexit_recursive_mutex
-                0x00000000200011d1                __lock___arc4random_mutex
-                0x00000000200011d2                __lock___env_recursive_mutex
-                0x00000000200011d3                __lock___sinit_recursive_mutex
-                0x00000000200011d4                __lock___malloc_recursive_mutex
-                0x00000000200011d5                __lock___at_quick_exit_mutex
-                0x00000000200011d6                __lock___dd_hash_mutex
-                0x00000000200011d7                __lock___tz_mutex
-                0x00000000200011d8                __lock___sfp_recursive_mutex
- *fill*         0x00000000200011d9        0x3 
- COMMON         0x00000000200011dc        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-reent.o)
-                0x00000000200011dc                errno
-                0x00000000200011e0                . = ALIGN (0x4)
-                0x00000000200011e0                _ebss = .
-                0x00000000200011e0                __bss_end__ = _ebss
+ COMMON         0x0000000020000b28        0x8 Core/Src/DRV8825.o
+                0x0000000020000b28                port_depart
+                0x0000000020000b2c                match_started
+ COMMON         0x0000000020000b30       0xc2 Core/Src/HC-SR04.o
+                0x0000000020000b30                lidarAlarmBack
+                0x0000000020000b54                lidarRawData
+                0x0000000020000b94                cpt_front
+                0x0000000020000b98                distUS
+                0x0000000020000ba8                stepUS
+                0x0000000020000bac                lidarData
+                0x0000000020000bb8                lidarAlarmFront
+                0x0000000020000bdc                indexUS
+                0x0000000020000be0                StopFront
+                0x0000000020000be4                cpt_back
+                0x0000000020000be8                cpt_us_global
+                0x0000000020000bea                buff_lidar
+                0x0000000020000bec                StopBack
+                0x0000000020000bf0                save_cpt_rising
+ *fill*         0x0000000020000bf2        0x2 
+ COMMON         0x0000000020000bf4       0x34 Core/Src/actionneurs.o
+                0x0000000020000bf4                bras
+                0x0000000020000bfc                flag
+                0x0000000020000c04                pinces
+                0x0000000020000c24                consigne
+ COMMON         0x0000000020000c28       0x48 Core/Src/adc.o
+                0x0000000020000c28                hadc1
+ COMMON         0x0000000020000c70       0x60 Core/Src/asservissement.o
+                0x0000000020000c70                g_x
+                0x0000000020000c78                g_angle
+                0x0000000020000c80                dAngle
+                0x0000000020000c88                moteur_D
+                0x0000000020000ca0                moteur_G
+                0x0000000020000cb8                indexStrategie
+                0x0000000020000cc0                g_y
+                0x0000000020000cc8                dDistance
+ COMMON         0x0000000020000cd0       0x44 Core/Src/ihm.o
+                0x0000000020000cd0                buff_ihm
+                0x0000000020000cd4                ihmRawData
+ COMMON         0x0000000020000d14        0x4 Core/Src/retarget.o
+                0x0000000020000d14                gHuart
+ COMMON         0x0000000020000d18      0x240 Core/Src/tim.o
+                0x0000000020000d18                htim8
+                0x0000000020000d60                htim4
+                0x0000000020000da8                htim3
+                0x0000000020000df0                htim11
+                0x0000000020000e38                htim6
+                0x0000000020000e80                htim1
+                0x0000000020000ec8                htim2
+                0x0000000020000f10                htim7
+ COMMON         0x0000000020000f58      0x154 Core/Src/usart.o
+                0x0000000020000f58                huart3
+                0x0000000020000f9c                huart5
+                0x0000000020000fe0                huart1
+                0x0000000020001024                huart4
+                0x0000000020001068                huart2
+ COMMON         0x00000000200010ac        0x4 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+                0x00000000200010ac                uwTick
+ COMMON         0x00000000200010b0        0x9 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
+                0x00000000200010b0                __lock___atexit_recursive_mutex
+                0x00000000200010b1                __lock___arc4random_mutex
+                0x00000000200010b2                __lock___env_recursive_mutex
+                0x00000000200010b3                __lock___sinit_recursive_mutex
+                0x00000000200010b4                __lock___malloc_recursive_mutex
+                0x00000000200010b5                __lock___at_quick_exit_mutex
+                0x00000000200010b6                __lock___dd_hash_mutex
+                0x00000000200010b7                __lock___tz_mutex
+                0x00000000200010b8                __lock___sfp_recursive_mutex
+ *fill*         0x00000000200010b9        0x3 
+ COMMON         0x00000000200010bc        0x4 c:/st/stm32cubeide_1.5.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-reent.o)
+                0x00000000200010bc                errno
+                0x00000000200010c0                . = ALIGN (0x4)
+                0x00000000200010c0                _ebss = .
+                0x00000000200010c0                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x00000000200011e0      0x600 load address 0x000000000800e648
-                0x00000000200011e0                . = ALIGN (0x8)
-                0x00000000200011e0                PROVIDE (end = .)
+                0x00000000200010c0      0x600 load address 0x000000000800e528
+                0x00000000200010c0                . = ALIGN (0x8)
+                0x00000000200010c0                PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
-                0x00000000200013e0                . = (. + _Min_Heap_Size)
- *fill*         0x00000000200011e0      0x200 
-                0x00000000200017e0                . = (. + _Min_Stack_Size)
- *fill*         0x00000000200013e0      0x400 
-                0x00000000200017e0                . = ALIGN (0x8)
+                0x00000000200012c0                . = (. + _Min_Heap_Size)
+ *fill*         0x00000000200010c0      0x200 
+                0x00000000200016c0                . = (. + _Min_Stack_Size)
+ *fill*         0x00000000200012c0      0x400 
+                0x00000000200016c0                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)

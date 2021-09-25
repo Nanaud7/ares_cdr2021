@@ -9,45 +9,45 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .rodata       00000700  0800d330  0800d330  0001d330  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  0800da30  0800da30  00020c08  2**0
+  3 .ARM.extab    00000000  0800da30  0800da30  00020ae8  2**0
                   CONTENTS
   4 .ARM          00000008  0800da30  0800da30  0001da30  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  0800da38  0800da38  00020c08  2**0
+  5 .preinit_array 00000000  0800da38  0800da38  00020ae8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   6 .init_array   00000004  0800da38  0800da38  0001da38  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   7 .fini_array   00000004  0800da3c  0800da3c  0001da3c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000c08  20000000  0800da40  00020000  2**3
+  8 .data         00000ae8  20000000  0800da40  00020000  2**3
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000005d8  20000c08  0800e648  00020c08  2**3
+  9 .bss          000005d8  20000ae8  0800e528  00020ae8  2**3
                   ALLOC
- 10 ._user_heap_stack 00000600  200011e0  0800e648  000211e0  2**0
+ 10 ._user_heap_stack 00000600  200010c0  0800e528  000210c0  2**0
                   ALLOC
- 11 .ARM.attributes 00000030  00000000  00000000  00020c08  2**0
+ 11 .ARM.attributes 00000030  00000000  00000000  00020ae8  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00020b03  00000000  00000000  00020c38  2**0
+ 12 .debug_info   00020b03  00000000  00000000  00020b18  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00004444  00000000  00000000  0004173b  2**0
+ 13 .debug_abbrev 00004444  00000000  00000000  0004161b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000012a0  00000000  00000000  00045b80  2**3
+ 14 .debug_aranges 000012a0  00000000  00000000  00045a60  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000010d0  00000000  00000000  00046e20  2**3
+ 15 .debug_ranges 000010d0  00000000  00000000  00046d00  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00027d4d  00000000  00000000  00047ef0  2**0
+ 16 .debug_macro  00027d4d  00000000  00000000  00047dd0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00019951  00000000  00000000  0006fc3d  2**0
+ 17 .debug_line   00019951  00000000  00000000  0006fb1d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000e0b1b  00000000  00000000  0008958e  2**0
+ 18 .debug_str    000e0b1b  00000000  00000000  0008946e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  0016a0a9  2**0
+ 19 .comment      00000053  00000000  00000000  00169f89  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000060bc  00000000  00000000  0016a0fc  2**2
+ 20 .debug_frame  000060bc  00000000  00000000  00169fdc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .stab         0000003c  00000000  00000000  001701b8  2**2
+ 21 .stab         0000003c  00000000  00000000  00170098  2**2
                   CONTENTS, READONLY, DEBUGGING
- 22 .stabstr      00000076  00000000  00000000  001701f4  2**0
+ 22 .stabstr      00000076  00000000  00000000  001700d4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -64,7 +64,7 @@ Disassembly of section .text:
  80001e2:	2301      	movs	r3, #1
  80001e4:	7023      	strb	r3, [r4, #0]
  80001e6:	bd10      	pop	{r4, pc}
- 80001e8:	20000c08 	.word	0x20000c08
+ 80001e8:	20000ae8 	.word	0x20000ae8
  80001ec:	00000000 	.word	0x00000000
  80001f0:	0800d318 	.word	0x0800d318
 
@@ -77,7 +77,7 @@ Disassembly of section .text:
  80001fe:	f3af 8000 	nop.w
  8000202:	bd08      	pop	{r3, pc}
  8000204:	00000000 	.word	0x00000000
- 8000208:	20000c0c 	.word	0x20000c0c
+ 8000208:	20000aec 	.word	0x20000aec
  800020c:	0800d318 	.word	0x0800d318
 
 08000210 <strlen>:
@@ -2298,11 +2298,11 @@ uint8_t initUltrasons(void){
  800169c:	f85d 7b04 	ldr.w	r7, [sp], #4
  80016a0:	4770      	bx	lr
  80016a2:	bf00      	nop
- 80016a4:	20000d10 	.word	0x20000d10
- 80016a8:	20000d08 	.word	0x20000d08
- 80016ac:	20000cfc 	.word	0x20000cfc
- 80016b0:	20000cc8 	.word	0x20000cc8
- 80016b4:	20000cb8 	.word	0x20000cb8
+ 80016a4:	20000bf0 	.word	0x20000bf0
+ 80016a8:	20000be8 	.word	0x20000be8
+ 80016ac:	20000bdc 	.word	0x20000bdc
+ 80016b0:	20000ba8 	.word	0x20000ba8
+ 80016b4:	20000b98 	.word	0x20000b98
  80016b8:	4479c000 	.word	0x4479c000
 
 080016bc <actionneursUpdate>:
@@ -2393,8 +2393,8 @@ void actionneursUpdate(CONSIGNE strategie){
  8001746:	b004      	add	sp, #16
  8001748:	4770      	bx	lr
  800174a:	bf00      	nop
- 800174c:	20000d14 	.word	0x20000d14
- 8001750:	20000d24 	.word	0x20000d24
+ 800174c:	20000bf4 	.word	0x20000bf4
+ 8001750:	20000c04 	.word	0x20000c04
 
 08001754 <initPinces>:
 
@@ -2481,9 +2481,9 @@ void initPinces(){
  80017ee:	3708      	adds	r7, #8
  80017f0:	46bd      	mov	sp, r7
  80017f2:	bd80      	pop	{r7, pc}
- 80017f4:	20000d24 	.word	0x20000d24
+ 80017f4:	20000c04 	.word	0x20000c04
  80017f8:	20000000 	.word	0x20000000
- 80017fc:	20001078 	.word	0x20001078
+ 80017fc:	20000f58 	.word	0x20000f58
  8001800:	42c80000 	.word	0x42c80000
  8001804:	42dc0000 	.word	0x42dc0000
  8001808:	42a00000 	.word	0x42a00000
@@ -2564,8 +2564,8 @@ void initFlag(){
 }
  8001890:	bf00      	nop
  8001892:	bd80      	pop	{r7, pc}
- 8001894:	20001078 	.word	0x20001078
- 8001898:	20000d1c 	.word	0x20000d1c
+ 8001894:	20000f58 	.word	0x20000f58
+ 8001898:	20000bfc 	.word	0x20000bfc
  800189c:	42c80000 	.word	0x42c80000
  80018a0:	42c00000 	.word	0x42c00000
  80018a4:	42a00000 	.word	0x42a00000
@@ -2583,7 +2583,7 @@ void raiseFlag(){
  80018b6:	bf00      	nop
  80018b8:	bd80      	pop	{r7, pc}
  80018ba:	bf00      	nop
- 80018bc:	20000d1c 	.word	0x20000d1c
+ 80018bc:	20000bfc 	.word	0x20000bfc
 
 080018c0 <initBras>:
 	AX12_setPosition(&flag, ANGLE_FLAG_DEPLOY);
@@ -2630,8 +2630,8 @@ void initBras(){
 }
  8001910:	bf00      	nop
  8001912:	bd80      	pop	{r7, pc}
- 8001914:	20001078 	.word	0x20001078
- 8001918:	20000d14 	.word	0x20000d14
+ 8001914:	20000f58 	.word	0x20000f58
+ 8001918:	20000bf4 	.word	0x20000bf4
  800191c:	42c80000 	.word	0x42c80000
  8001920:	42b40000 	.word	0x42b40000
  8001924:	00000000 	.word	0x00000000
@@ -2651,7 +2651,7 @@ void raiseBras(){
  800193c:	bd80      	pop	{r7, pc}
  800193e:	bf00      	nop
  8001940:	42b40000 	.word	0x42b40000
- 8001944:	20000d14 	.word	0x20000d14
+ 8001944:	20000bf4 	.word	0x20000bf4
 
 08001948 <deployBras>:
 
@@ -2659,267 +2659,267 @@ void deployBras(){
  8001948:	b580      	push	{r7, lr}
  800194a:	af00      	add	r7, sp, #0
 	AX12_setPosition(&bras, ANGLE_BRAS_DEPLOY);
- 800194c:	ed9f 0a03 	vldr	s0, [pc, #12]	; 800195c <deployBras+0x14>
- 8001950:	4803      	ldr	r0, [pc, #12]	; (8001960 <deployBras+0x18>)
+ 800194c:	eeb2 0a04 	vmov.f32	s0, #36	; 0x41200000  10.0
+ 8001950:	4802      	ldr	r0, [pc, #8]	; (800195c <deployBras+0x14>)
  8001952:	f7ff fbc9 	bl	80010e8 <AX12_setPosition>
 }
  8001956:	bf00      	nop
  8001958:	bd80      	pop	{r7, pc}
  800195a:	bf00      	nop
- 800195c:	42480000 	.word	0x42480000
- 8001960:	20000d14 	.word	0x20000d14
+ 800195c:	20000bf4 	.word	0x20000bf4
 
-08001964 <MX_ADC1_Init>:
+08001960 <MX_ADC1_Init>:
 
 ADC_HandleTypeDef hadc1;
 
 /* ADC1 init function */
 void MX_ADC1_Init(void)
 {
- 8001964:	b580      	push	{r7, lr}
- 8001966:	b084      	sub	sp, #16
- 8001968:	af00      	add	r7, sp, #0
+ 8001960:	b580      	push	{r7, lr}
+ 8001962:	b084      	sub	sp, #16
+ 8001964:	af00      	add	r7, sp, #0
 
   /* USER CODE BEGIN ADC1_Init 0 */
 
   /* USER CODE END ADC1_Init 0 */
 
   ADC_ChannelConfTypeDef sConfig = {0};
- 800196a:	463b      	mov	r3, r7
- 800196c:	2200      	movs	r2, #0
- 800196e:	601a      	str	r2, [r3, #0]
- 8001970:	605a      	str	r2, [r3, #4]
- 8001972:	609a      	str	r2, [r3, #8]
- 8001974:	60da      	str	r2, [r3, #12]
+ 8001966:	463b      	mov	r3, r7
+ 8001968:	2200      	movs	r2, #0
+ 800196a:	601a      	str	r2, [r3, #0]
+ 800196c:	605a      	str	r2, [r3, #4]
+ 800196e:	609a      	str	r2, [r3, #8]
+ 8001970:	60da      	str	r2, [r3, #12]
   /* USER CODE BEGIN ADC1_Init 1 */
 
   /* USER CODE END ADC1_Init 1 */
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc1.Instance = ADC1;
- 8001976:	4b21      	ldr	r3, [pc, #132]	; (80019fc <MX_ADC1_Init+0x98>)
- 8001978:	4a21      	ldr	r2, [pc, #132]	; (8001a00 <MX_ADC1_Init+0x9c>)
- 800197a:	601a      	str	r2, [r3, #0]
+ 8001972:	4b21      	ldr	r3, [pc, #132]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 8001974:	4a21      	ldr	r2, [pc, #132]	; (80019fc <MX_ADC1_Init+0x9c>)
+ 8001976:	601a      	str	r2, [r3, #0]
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
- 800197c:	4b1f      	ldr	r3, [pc, #124]	; (80019fc <MX_ADC1_Init+0x98>)
- 800197e:	f44f 3280 	mov.w	r2, #65536	; 0x10000
- 8001982:	605a      	str	r2, [r3, #4]
+ 8001978:	4b1f      	ldr	r3, [pc, #124]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 800197a:	f44f 3280 	mov.w	r2, #65536	; 0x10000
+ 800197e:	605a      	str	r2, [r3, #4]
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
- 8001984:	4b1d      	ldr	r3, [pc, #116]	; (80019fc <MX_ADC1_Init+0x98>)
- 8001986:	2200      	movs	r2, #0
- 8001988:	609a      	str	r2, [r3, #8]
+ 8001980:	4b1d      	ldr	r3, [pc, #116]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 8001982:	2200      	movs	r2, #0
+ 8001984:	609a      	str	r2, [r3, #8]
   hadc1.Init.ScanConvMode = DISABLE;
- 800198a:	4b1c      	ldr	r3, [pc, #112]	; (80019fc <MX_ADC1_Init+0x98>)
- 800198c:	2200      	movs	r2, #0
- 800198e:	611a      	str	r2, [r3, #16]
+ 8001986:	4b1c      	ldr	r3, [pc, #112]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 8001988:	2200      	movs	r2, #0
+ 800198a:	611a      	str	r2, [r3, #16]
   hadc1.Init.ContinuousConvMode = DISABLE;
- 8001990:	4b1a      	ldr	r3, [pc, #104]	; (80019fc <MX_ADC1_Init+0x98>)
- 8001992:	2200      	movs	r2, #0
- 8001994:	761a      	strb	r2, [r3, #24]
+ 800198c:	4b1a      	ldr	r3, [pc, #104]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 800198e:	2200      	movs	r2, #0
+ 8001990:	761a      	strb	r2, [r3, #24]
   hadc1.Init.DiscontinuousConvMode = DISABLE;
- 8001996:	4b19      	ldr	r3, [pc, #100]	; (80019fc <MX_ADC1_Init+0x98>)
- 8001998:	2200      	movs	r2, #0
- 800199a:	f883 2020 	strb.w	r2, [r3, #32]
+ 8001992:	4b19      	ldr	r3, [pc, #100]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 8001994:	2200      	movs	r2, #0
+ 8001996:	f883 2020 	strb.w	r2, [r3, #32]
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
- 800199e:	4b17      	ldr	r3, [pc, #92]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019a0:	2200      	movs	r2, #0
- 80019a2:	62da      	str	r2, [r3, #44]	; 0x2c
+ 800199a:	4b17      	ldr	r3, [pc, #92]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 800199c:	2200      	movs	r2, #0
+ 800199e:	62da      	str	r2, [r3, #44]	; 0x2c
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
- 80019a4:	4b15      	ldr	r3, [pc, #84]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019a6:	4a17      	ldr	r2, [pc, #92]	; (8001a04 <MX_ADC1_Init+0xa0>)
- 80019a8:	629a      	str	r2, [r3, #40]	; 0x28
+ 80019a0:	4b15      	ldr	r3, [pc, #84]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019a2:	4a17      	ldr	r2, [pc, #92]	; (8001a00 <MX_ADC1_Init+0xa0>)
+ 80019a4:	629a      	str	r2, [r3, #40]	; 0x28
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
- 80019aa:	4b14      	ldr	r3, [pc, #80]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019ac:	2200      	movs	r2, #0
- 80019ae:	60da      	str	r2, [r3, #12]
+ 80019a6:	4b14      	ldr	r3, [pc, #80]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019a8:	2200      	movs	r2, #0
+ 80019aa:	60da      	str	r2, [r3, #12]
   hadc1.Init.NbrOfConversion = 1;
- 80019b0:	4b12      	ldr	r3, [pc, #72]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019b2:	2201      	movs	r2, #1
- 80019b4:	61da      	str	r2, [r3, #28]
+ 80019ac:	4b12      	ldr	r3, [pc, #72]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019ae:	2201      	movs	r2, #1
+ 80019b0:	61da      	str	r2, [r3, #28]
   hadc1.Init.DMAContinuousRequests = DISABLE;
- 80019b6:	4b11      	ldr	r3, [pc, #68]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019b8:	2200      	movs	r2, #0
- 80019ba:	f883 2030 	strb.w	r2, [r3, #48]	; 0x30
+ 80019b2:	4b11      	ldr	r3, [pc, #68]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019b4:	2200      	movs	r2, #0
+ 80019b6:	f883 2030 	strb.w	r2, [r3, #48]	; 0x30
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
- 80019be:	4b0f      	ldr	r3, [pc, #60]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019c0:	2201      	movs	r2, #1
- 80019c2:	615a      	str	r2, [r3, #20]
+ 80019ba:	4b0f      	ldr	r3, [pc, #60]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019bc:	2201      	movs	r2, #1
+ 80019be:	615a      	str	r2, [r3, #20]
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
- 80019c4:	480d      	ldr	r0, [pc, #52]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019c6:	f002 fccf 	bl	8004368 <HAL_ADC_Init>
- 80019ca:	4603      	mov	r3, r0
- 80019cc:	2b00      	cmp	r3, #0
- 80019ce:	d001      	beq.n	80019d4 <MX_ADC1_Init+0x70>
+ 80019c0:	480d      	ldr	r0, [pc, #52]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019c2:	f002 fcd1 	bl	8004368 <HAL_ADC_Init>
+ 80019c6:	4603      	mov	r3, r0
+ 80019c8:	2b00      	cmp	r3, #0
+ 80019ca:	d001      	beq.n	80019d0 <MX_ADC1_Init+0x70>
   {
     Error_Handler();
- 80019d0:	f001 f995 	bl	8002cfe <Error_Handler>
+ 80019cc:	f001 f997 	bl	8002cfe <Error_Handler>
   }
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
   sConfig.Channel = ADC_CHANNEL_4;
- 80019d4:	2304      	movs	r3, #4
- 80019d6:	603b      	str	r3, [r7, #0]
+ 80019d0:	2304      	movs	r3, #4
+ 80019d2:	603b      	str	r3, [r7, #0]
   sConfig.Rank = 1;
- 80019d8:	2301      	movs	r3, #1
- 80019da:	607b      	str	r3, [r7, #4]
+ 80019d4:	2301      	movs	r3, #1
+ 80019d6:	607b      	str	r3, [r7, #4]
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
- 80019dc:	2300      	movs	r3, #0
- 80019de:	60bb      	str	r3, [r7, #8]
+ 80019d8:	2300      	movs	r3, #0
+ 80019da:	60bb      	str	r3, [r7, #8]
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
- 80019e0:	463b      	mov	r3, r7
- 80019e2:	4619      	mov	r1, r3
- 80019e4:	4805      	ldr	r0, [pc, #20]	; (80019fc <MX_ADC1_Init+0x98>)
- 80019e6:	f002 fe6d 	bl	80046c4 <HAL_ADC_ConfigChannel>
- 80019ea:	4603      	mov	r3, r0
- 80019ec:	2b00      	cmp	r3, #0
- 80019ee:	d001      	beq.n	80019f4 <MX_ADC1_Init+0x90>
+ 80019dc:	463b      	mov	r3, r7
+ 80019de:	4619      	mov	r1, r3
+ 80019e0:	4805      	ldr	r0, [pc, #20]	; (80019f8 <MX_ADC1_Init+0x98>)
+ 80019e2:	f002 fe6f 	bl	80046c4 <HAL_ADC_ConfigChannel>
+ 80019e6:	4603      	mov	r3, r0
+ 80019e8:	2b00      	cmp	r3, #0
+ 80019ea:	d001      	beq.n	80019f0 <MX_ADC1_Init+0x90>
   {
     Error_Handler();
- 80019f0:	f001 f985 	bl	8002cfe <Error_Handler>
+ 80019ec:	f001 f987 	bl	8002cfe <Error_Handler>
   }
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
 
 }
- 80019f4:	bf00      	nop
- 80019f6:	3710      	adds	r7, #16
- 80019f8:	46bd      	mov	sp, r7
- 80019fa:	bd80      	pop	{r7, pc}
- 80019fc:	20000d48 	.word	0x20000d48
- 8001a00:	40012000 	.word	0x40012000
- 8001a04:	0f000001 	.word	0x0f000001
+ 80019f0:	bf00      	nop
+ 80019f2:	3710      	adds	r7, #16
+ 80019f4:	46bd      	mov	sp, r7
+ 80019f6:	bd80      	pop	{r7, pc}
+ 80019f8:	20000c28 	.word	0x20000c28
+ 80019fc:	40012000 	.word	0x40012000
+ 8001a00:	0f000001 	.word	0x0f000001
 
-08001a08 <HAL_ADC_MspInit>:
+08001a04 <HAL_ADC_MspInit>:
 
 void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
 {
- 8001a08:	b580      	push	{r7, lr}
- 8001a0a:	b08a      	sub	sp, #40	; 0x28
- 8001a0c:	af00      	add	r7, sp, #0
- 8001a0e:	6078      	str	r0, [r7, #4]
+ 8001a04:	b580      	push	{r7, lr}
+ 8001a06:	b08a      	sub	sp, #40	; 0x28
+ 8001a08:	af00      	add	r7, sp, #0
+ 8001a0a:	6078      	str	r0, [r7, #4]
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
- 8001a10:	f107 0314 	add.w	r3, r7, #20
- 8001a14:	2200      	movs	r2, #0
- 8001a16:	601a      	str	r2, [r3, #0]
- 8001a18:	605a      	str	r2, [r3, #4]
- 8001a1a:	609a      	str	r2, [r3, #8]
- 8001a1c:	60da      	str	r2, [r3, #12]
- 8001a1e:	611a      	str	r2, [r3, #16]
+ 8001a0c:	f107 0314 	add.w	r3, r7, #20
+ 8001a10:	2200      	movs	r2, #0
+ 8001a12:	601a      	str	r2, [r3, #0]
+ 8001a14:	605a      	str	r2, [r3, #4]
+ 8001a16:	609a      	str	r2, [r3, #8]
+ 8001a18:	60da      	str	r2, [r3, #12]
+ 8001a1a:	611a      	str	r2, [r3, #16]
   if(adcHandle->Instance==ADC1)
- 8001a20:	687b      	ldr	r3, [r7, #4]
- 8001a22:	681b      	ldr	r3, [r3, #0]
- 8001a24:	4a17      	ldr	r2, [pc, #92]	; (8001a84 <HAL_ADC_MspInit+0x7c>)
- 8001a26:	4293      	cmp	r3, r2
- 8001a28:	d127      	bne.n	8001a7a <HAL_ADC_MspInit+0x72>
+ 8001a1c:	687b      	ldr	r3, [r7, #4]
+ 8001a1e:	681b      	ldr	r3, [r3, #0]
+ 8001a20:	4a17      	ldr	r2, [pc, #92]	; (8001a80 <HAL_ADC_MspInit+0x7c>)
+ 8001a22:	4293      	cmp	r3, r2
+ 8001a24:	d127      	bne.n	8001a76 <HAL_ADC_MspInit+0x72>
   {
   /* USER CODE BEGIN ADC1_MspInit 0 */
 
   /* USER CODE END ADC1_MspInit 0 */
     /* ADC1 clock enable */
     __HAL_RCC_ADC1_CLK_ENABLE();
- 8001a2a:	2300      	movs	r3, #0
- 8001a2c:	613b      	str	r3, [r7, #16]
- 8001a2e:	4b16      	ldr	r3, [pc, #88]	; (8001a88 <HAL_ADC_MspInit+0x80>)
- 8001a30:	6c5b      	ldr	r3, [r3, #68]	; 0x44
- 8001a32:	4a15      	ldr	r2, [pc, #84]	; (8001a88 <HAL_ADC_MspInit+0x80>)
- 8001a34:	f443 7380 	orr.w	r3, r3, #256	; 0x100
- 8001a38:	6453      	str	r3, [r2, #68]	; 0x44
- 8001a3a:	4b13      	ldr	r3, [pc, #76]	; (8001a88 <HAL_ADC_MspInit+0x80>)
- 8001a3c:	6c5b      	ldr	r3, [r3, #68]	; 0x44
- 8001a3e:	f403 7380 	and.w	r3, r3, #256	; 0x100
- 8001a42:	613b      	str	r3, [r7, #16]
- 8001a44:	693b      	ldr	r3, [r7, #16]
+ 8001a26:	2300      	movs	r3, #0
+ 8001a28:	613b      	str	r3, [r7, #16]
+ 8001a2a:	4b16      	ldr	r3, [pc, #88]	; (8001a84 <HAL_ADC_MspInit+0x80>)
+ 8001a2c:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+ 8001a2e:	4a15      	ldr	r2, [pc, #84]	; (8001a84 <HAL_ADC_MspInit+0x80>)
+ 8001a30:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 8001a34:	6453      	str	r3, [r2, #68]	; 0x44
+ 8001a36:	4b13      	ldr	r3, [pc, #76]	; (8001a84 <HAL_ADC_MspInit+0x80>)
+ 8001a38:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+ 8001a3a:	f403 7380 	and.w	r3, r3, #256	; 0x100
+ 8001a3e:	613b      	str	r3, [r7, #16]
+ 8001a40:	693b      	ldr	r3, [r7, #16]
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
- 8001a46:	2300      	movs	r3, #0
- 8001a48:	60fb      	str	r3, [r7, #12]
- 8001a4a:	4b0f      	ldr	r3, [pc, #60]	; (8001a88 <HAL_ADC_MspInit+0x80>)
- 8001a4c:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 8001a4e:	4a0e      	ldr	r2, [pc, #56]	; (8001a88 <HAL_ADC_MspInit+0x80>)
- 8001a50:	f043 0301 	orr.w	r3, r3, #1
- 8001a54:	6313      	str	r3, [r2, #48]	; 0x30
- 8001a56:	4b0c      	ldr	r3, [pc, #48]	; (8001a88 <HAL_ADC_MspInit+0x80>)
- 8001a58:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 8001a5a:	f003 0301 	and.w	r3, r3, #1
- 8001a5e:	60fb      	str	r3, [r7, #12]
- 8001a60:	68fb      	ldr	r3, [r7, #12]
+ 8001a42:	2300      	movs	r3, #0
+ 8001a44:	60fb      	str	r3, [r7, #12]
+ 8001a46:	4b0f      	ldr	r3, [pc, #60]	; (8001a84 <HAL_ADC_MspInit+0x80>)
+ 8001a48:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 8001a4a:	4a0e      	ldr	r2, [pc, #56]	; (8001a84 <HAL_ADC_MspInit+0x80>)
+ 8001a4c:	f043 0301 	orr.w	r3, r3, #1
+ 8001a50:	6313      	str	r3, [r2, #48]	; 0x30
+ 8001a52:	4b0c      	ldr	r3, [pc, #48]	; (8001a84 <HAL_ADC_MspInit+0x80>)
+ 8001a54:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 8001a56:	f003 0301 	and.w	r3, r3, #1
+ 8001a5a:	60fb      	str	r3, [r7, #12]
+ 8001a5c:	68fb      	ldr	r3, [r7, #12]
     /**ADC1 GPIO Configuration
     PA4     ------> ADC1_IN4
     */
     GPIO_InitStruct.Pin = Tirette_Alternative_Pin;
- 8001a62:	2310      	movs	r3, #16
- 8001a64:	617b      	str	r3, [r7, #20]
+ 8001a5e:	2310      	movs	r3, #16
+ 8001a60:	617b      	str	r3, [r7, #20]
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
- 8001a66:	2303      	movs	r3, #3
- 8001a68:	61bb      	str	r3, [r7, #24]
+ 8001a62:	2303      	movs	r3, #3
+ 8001a64:	61bb      	str	r3, [r7, #24]
     GPIO_InitStruct.Pull = GPIO_NOPULL;
- 8001a6a:	2300      	movs	r3, #0
- 8001a6c:	61fb      	str	r3, [r7, #28]
+ 8001a66:	2300      	movs	r3, #0
+ 8001a68:	61fb      	str	r3, [r7, #28]
     HAL_GPIO_Init(Tirette_Alternative_GPIO_Port, &GPIO_InitStruct);
- 8001a6e:	f107 0314 	add.w	r3, r7, #20
- 8001a72:	4619      	mov	r1, r3
- 8001a74:	4805      	ldr	r0, [pc, #20]	; (8001a8c <HAL_ADC_MspInit+0x84>)
- 8001a76:	f003 f9f7 	bl	8004e68 <HAL_GPIO_Init>
+ 8001a6a:	f107 0314 	add.w	r3, r7, #20
+ 8001a6e:	4619      	mov	r1, r3
+ 8001a70:	4805      	ldr	r0, [pc, #20]	; (8001a88 <HAL_ADC_MspInit+0x84>)
+ 8001a72:	f003 f9f9 	bl	8004e68 <HAL_GPIO_Init>
 
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
   /* USER CODE END ADC1_MspInit 1 */
   }
 }
- 8001a7a:	bf00      	nop
- 8001a7c:	3728      	adds	r7, #40	; 0x28
- 8001a7e:	46bd      	mov	sp, r7
- 8001a80:	bd80      	pop	{r7, pc}
- 8001a82:	bf00      	nop
- 8001a84:	40012000 	.word	0x40012000
- 8001a88:	40023800 	.word	0x40023800
- 8001a8c:	40020000 	.word	0x40020000
+ 8001a76:	bf00      	nop
+ 8001a78:	3728      	adds	r7, #40	; 0x28
+ 8001a7a:	46bd      	mov	sp, r7
+ 8001a7c:	bd80      	pop	{r7, pc}
+ 8001a7e:	bf00      	nop
+ 8001a80:	40012000 	.word	0x40012000
+ 8001a84:	40023800 	.word	0x40023800
+ 8001a88:	40020000 	.word	0x40020000
 
-08001a90 <toZeroOne>:
+08001a8c <toZeroOne>:
 /**
  * Borne une valeur donnée dans [0, 1].
  * @param x La valeur à borner.
  * @return Si possible x, 0 ou 1 sinon.
  */
 double toZeroOne(double x) {
- 8001a90:	b580      	push	{r7, lr}
- 8001a92:	b082      	sub	sp, #8
- 8001a94:	af00      	add	r7, sp, #0
- 8001a96:	ed87 0b00 	vstr	d0, [r7]
+ 8001a8c:	b580      	push	{r7, lr}
+ 8001a8e:	b082      	sub	sp, #8
+ 8001a90:	af00      	add	r7, sp, #0
+ 8001a92:	ed87 0b00 	vstr	d0, [r7]
 	if (x < 0) return 0;
- 8001a9a:	f04f 0200 	mov.w	r2, #0
- 8001a9e:	f04f 0300 	mov.w	r3, #0
- 8001aa2:	e9d7 0100 	ldrd	r0, r1, [r7]
- 8001aa6:	f7ff f839 	bl	8000b1c <__aeabi_dcmplt>
- 8001aaa:	4603      	mov	r3, r0
- 8001aac:	2b00      	cmp	r3, #0
- 8001aae:	d004      	beq.n	8001aba <toZeroOne+0x2a>
- 8001ab0:	f04f 0200 	mov.w	r2, #0
- 8001ab4:	f04f 0300 	mov.w	r3, #0
- 8001ab8:	e00f      	b.n	8001ada <toZeroOne+0x4a>
+ 8001a96:	f04f 0200 	mov.w	r2, #0
+ 8001a9a:	f04f 0300 	mov.w	r3, #0
+ 8001a9e:	e9d7 0100 	ldrd	r0, r1, [r7]
+ 8001aa2:	f7ff f83b 	bl	8000b1c <__aeabi_dcmplt>
+ 8001aa6:	4603      	mov	r3, r0
+ 8001aa8:	2b00      	cmp	r3, #0
+ 8001aaa:	d004      	beq.n	8001ab6 <toZeroOne+0x2a>
+ 8001aac:	f04f 0200 	mov.w	r2, #0
+ 8001ab0:	f04f 0300 	mov.w	r3, #0
+ 8001ab4:	e00f      	b.n	8001ad6 <toZeroOne+0x4a>
 	if (x > 1) return 1;
- 8001aba:	f04f 0200 	mov.w	r2, #0
- 8001abe:	4b0b      	ldr	r3, [pc, #44]	; (8001aec <toZeroOne+0x5c>)
- 8001ac0:	e9d7 0100 	ldrd	r0, r1, [r7]
- 8001ac4:	f7ff f848 	bl	8000b58 <__aeabi_dcmpgt>
- 8001ac8:	4603      	mov	r3, r0
- 8001aca:	2b00      	cmp	r3, #0
- 8001acc:	d003      	beq.n	8001ad6 <toZeroOne+0x46>
- 8001ace:	f04f 0200 	mov.w	r2, #0
- 8001ad2:	4b06      	ldr	r3, [pc, #24]	; (8001aec <toZeroOne+0x5c>)
- 8001ad4:	e001      	b.n	8001ada <toZeroOne+0x4a>
+ 8001ab6:	f04f 0200 	mov.w	r2, #0
+ 8001aba:	4b0b      	ldr	r3, [pc, #44]	; (8001ae8 <toZeroOne+0x5c>)
+ 8001abc:	e9d7 0100 	ldrd	r0, r1, [r7]
+ 8001ac0:	f7ff f84a 	bl	8000b58 <__aeabi_dcmpgt>
+ 8001ac4:	4603      	mov	r3, r0
+ 8001ac6:	2b00      	cmp	r3, #0
+ 8001ac8:	d003      	beq.n	8001ad2 <toZeroOne+0x46>
+ 8001aca:	f04f 0200 	mov.w	r2, #0
+ 8001ace:	4b06      	ldr	r3, [pc, #24]	; (8001ae8 <toZeroOne+0x5c>)
+ 8001ad0:	e001      	b.n	8001ad6 <toZeroOne+0x4a>
 	return x;
- 8001ad6:	e9d7 2300 	ldrd	r2, r3, [r7]
- 8001ada:	ec43 2b17 	vmov	d7, r2, r3
+ 8001ad2:	e9d7 2300 	ldrd	r2, r3, [r7]
+ 8001ad6:	ec43 2b17 	vmov	d7, r2, r3
 }
- 8001ade:	eeb0 0a47 	vmov.f32	s0, s14
- 8001ae2:	eef0 0a67 	vmov.f32	s1, s15
- 8001ae6:	3708      	adds	r7, #8
- 8001ae8:	46bd      	mov	sp, r7
- 8001aea:	bd80      	pop	{r7, pc}
- 8001aec:	3ff00000 	.word	0x3ff00000
+ 8001ada:	eeb0 0a47 	vmov.f32	s0, s14
+ 8001ade:	eef0 0a67 	vmov.f32	s1, s15
+ 8001ae2:	3708      	adds	r7, #8
+ 8001ae4:	46bd      	mov	sp, r7
+ 8001ae6:	bd80      	pop	{r7, pc}
+ 8001ae8:	3ff00000 	.word	0x3ff00000
+ 8001aec:	00000000 	.word	0x00000000
 
 08001af0 <toZeroTwoPi>:
 /**
@@ -3086,9 +3086,9 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  8001c62:	bf00      	nop
  8001c64:	f3af 8000 	nop.w
 	...
- 8001c70:	20000dd8 	.word	0x20000dd8
+ 8001c70:	20000cb8 	.word	0x20000cb8
  8001c74:	20000004 	.word	0x20000004
- 8001c78:	20000c4c 	.word	0x20000c4c
+ 8001c78:	20000b2c 	.word	0x20000b2c
     	return;
     }
 
@@ -3212,7 +3212,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  8001df8:	ec43 2b17 	vmov	d7, r2, r3
  8001dfc:	eeb0 0a47 	vmov.f32	s0, s14
  8001e00:	eef0 0a67 	vmov.f32	s1, s15
- 8001e04:	f7ff fe44 	bl	8001a90 <toZeroOne>
+ 8001e04:	f7ff fe42 	bl	8001a8c <toZeroOne>
  8001e08:	ed87 0b34 	vstr	d0, [r7, #208]	; 0xd0
     if (segmentLength == 0) moveProgress = 1; // pour éviter NaN en cas de divison par zéro
  8001e0c:	f04f 0200 	mov.w	r2, #0
@@ -3358,10 +3358,10 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  8001f84:	3ff19999 	.word	0x3ff19999
  8001f88:	54442d18 	.word	0x54442d18
  8001f8c:	400921fb 	.word	0x400921fb
- 8001f90:	20000d90 	.word	0x20000d90
- 8001f94:	20000de0 	.word	0x20000de0
+ 8001f90:	20000c70 	.word	0x20000c70
+ 8001f94:	20000cc0 	.word	0x20000cc0
  8001f98:	3ff00000 	.word	0x3ff00000
- 8001f9c:	20000d98 	.word	0x20000d98
+ 8001f9c:	20000c78 	.word	0x20000c78
  8001fa0:	f04f 0200 	mov.w	r2, #0
  8001fa4:	f04f 0300 	mov.w	r3, #0
  8001fa8:	f7fe f98e 	bl	80002c8 <__aeabi_dsub>
@@ -3399,7 +3399,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  8002002:	ec43 2b17 	vmov	d7, r2, r3
  8002006:	eeb0 0a47 	vmov.f32	s0, s14
  800200a:	eef0 0a67 	vmov.f32	s1, s15
- 800200e:	f7ff fd3f 	bl	8001a90 <toZeroOne>
+ 800200e:	f7ff fd3d 	bl	8001a8c <toZeroOne>
  8002012:	ed87 0b32 	vstr	d0, [r7, #200]	; 0xc8
     if (fabs(initialAngleError) < 0.001) rotateProgress = 1; // pour éviter NaN en cas de divison par zéro
  8002016:	4bac      	ldr	r3, [pc, #688]	; (80022c8 <ASSERV_update2+0x6a0>)
@@ -3592,7 +3592,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  80021e6:	ec43 2b17 	vmov	d7, r2, r3
  80021ea:	eeb0 0a47 	vmov.f32	s0, s14
  80021ee:	eef0 0a67 	vmov.f32	s1, s15
- 80021f2:	f7ff fc4d 	bl	8001a90 <toZeroOne>
+ 80021f2:	f7ff fc4b 	bl	8001a8c <toZeroOne>
  80021f6:	ec53 2b10 	vmov	r2, r3, d0
  80021fa:	e9d7 0130 	ldrd	r0, r1, [r7, #192]	; 0xc0
  80021fe:	f7fe fa1b 	bl	8000638 <__aeabi_dmul>
@@ -3668,9 +3668,9 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  80022bc:	3fc99999 	.word	0x3fc99999
  80022c0:	00000000 	.word	0x00000000
  80022c4:	40000000 	.word	0x40000000
- 80022c8:	20000c28 	.word	0x20000c28
+ 80022c8:	20000b08 	.word	0x20000b08
  80022cc:	3ff00000 	.word	0x3ff00000
- 80022d0:	20000c30 	.word	0x20000c30
+ 80022d0:	20000b10 	.word	0x20000b10
  80022d4:	40280000 	.word	0x40280000
  80022d8:	402e0000 	.word	0x402e0000
  80022dc:	408f4000 	.word	0x408f4000
@@ -3868,12 +3868,12 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
  80024d0:	9999999a 	.word	0x9999999a
  80024d4:	3fb99999 	.word	0x3fb99999
  80024d8:	bff00000 	.word	0xbff00000
- 80024dc:	20000c28 	.word	0x20000c28
+ 80024dc:	20000b08 	.word	0x20000b08
  80024e0:	40280000 	.word	0x40280000
  80024e4:	3ff00000 	.word	0x3ff00000
- 80024e8:	20000d00 	.word	0x20000d00
- 80024ec:	20000d0c 	.word	0x20000d0c
- 80024f0:	20000dd8 	.word	0x20000dd8
+ 80024e8:	20000be0 	.word	0x20000be0
+ 80024ec:	20000bec 	.word	0x20000bec
+ 80024f0:	20000cb8 	.word	0x20000cb8
  80024f4:	7ff80000 	.word	0x7ff80000
 
 080024f8 <MX_GPIO_Init>:
@@ -4186,10 +4186,10 @@ int decodeMsgIHM(char *trame){
  80026de:	46bd      	mov	sp, r7
  80026e0:	bd80      	pop	{r7, pc}
  80026e2:	bf00      	nop
- 80026e4:	20000c48 	.word	0x20000c48
+ 80026e4:	20000b28 	.word	0x20000b28
  80026e8:	0800d330 	.word	0x0800d330
  80026ec:	0800d350 	.word	0x0800d350
- 80026f0:	20000c4c 	.word	0x20000c4c
+ 80026f0:	20000b2c 	.word	0x20000b2c
  80026f4:	0800d370 	.word	0x0800d370
 
 080026f8 <getLidarData2>:
@@ -4251,11 +4251,11 @@ void getLidarData2(){
  8002730:	46bd      	mov	sp, r7
  8002732:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002736:	4770      	bx	lr
- 8002738:	20000c74 	.word	0x20000c74
- 800273c:	20000d0c 	.word	0x20000d0c
- 8002740:	20000d04 	.word	0x20000d04
- 8002744:	20000d00 	.word	0x20000d00
- 8002748:	20000cb4 	.word	0x20000cb4
+ 8002738:	20000b54 	.word	0x20000b54
+ 800273c:	20000bec 	.word	0x20000bec
+ 8002740:	20000be4 	.word	0x20000be4
+ 8002744:	20000be0 	.word	0x20000be0
+ 8002748:	20000b94 	.word	0x20000b94
  800274c:	00000000 	.word	0x00000000
 
 08002750 <main>:
@@ -4312,7 +4312,7 @@ int main(void)
   MX_TIM2_Init();
  800278a:	f000 feef 	bl	800356c <MX_TIM2_Init>
   MX_ADC1_Init();
- 800278e:	f7ff f8e9 	bl	8001964 <MX_ADC1_Init>
+ 800278e:	f7ff f8e7 	bl	8001960 <MX_ADC1_Init>
   MX_TIM6_Init();
  8002792:	f000 ffd9 	bl	8003748 <MX_TIM6_Init>
   MX_TIM4_Init();
@@ -4446,17 +4446,17 @@ int main(void)
  8002866:	bf00      	nop
  8002868:	66666666 	.word	0x66666666
  800286c:	3f4a6666 	.word	0x3f4a6666
- 8002870:	20000c48 	.word	0x20000c48
- 8002874:	20000dd8 	.word	0x20000dd8
- 8002878:	20000d48 	.word	0x20000d48
+ 8002870:	20000b28 	.word	0x20000b28
+ 8002874:	20000cb8 	.word	0x20000cb8
+ 8002878:	20000c28 	.word	0x20000c28
  800287c:	000f4240 	.word	0x000f4240
- 8002880:	20000c38 	.word	0x20000c38
+ 8002880:	20000b18 	.word	0x20000b18
  8002884:	0800d378 	.word	0x0800d378
  8002888:	404ccccd 	.word	0x404ccccd
- 800288c:	20000c4c 	.word	0x20000c4c
- 8002890:	20000d0a 	.word	0x20000d0a
- 8002894:	200010bc 	.word	0x200010bc
- 8002898:	20000c34 	.word	0x20000c34
+ 800288c:	20000b2c 	.word	0x20000b2c
+ 8002890:	20000bea 	.word	0x20000bea
+ 8002894:	20000f9c 	.word	0x20000f9c
+ 8002898:	20000b14 	.word	0x20000b14
 
 0800289c <SystemClock_Config>:
 /**
@@ -4648,11 +4648,11 @@ int initTimers(){
 }
  80029ac:	4618      	mov	r0, r3
  80029ae:	bd80      	pop	{r7, pc}
- 80029b0:	20000fa0 	.word	0x20000fa0
- 80029b4:	20000ec8 	.word	0x20000ec8
- 80029b8:	20000fe8 	.word	0x20000fe8
- 80029bc:	20001030 	.word	0x20001030
- 80029c0:	20000f58 	.word	0x20000f58
+ 80029b0:	20000e80 	.word	0x20000e80
+ 80029b4:	20000da8 	.word	0x20000da8
+ 80029b8:	20000ec8 	.word	0x20000ec8
+ 80029bc:	20000f10 	.word	0x20000f10
+ 80029c0:	20000e38 	.word	0x20000e38
 
 080029c4 <initSerials>:
 
@@ -4683,10 +4683,10 @@ int initSerials(){
 }
  80029e0:	4618      	mov	r0, r3
  80029e2:	bd80      	pop	{r7, pc}
- 80029e4:	20001188 	.word	0x20001188
+ 80029e4:	20001068 	.word	0x20001068
  80029e8:	0800d380 	.word	0x0800d380
- 80029ec:	20000df0 	.word	0x20000df0
- 80029f0:	20001144 	.word	0x20001144
+ 80029ec:	20000cd0 	.word	0x20000cd0
+ 80029f0:	20001024 	.word	0x20001024
  80029f4:	00000000 	.word	0x00000000
 
 080029f8 <initStrategie>:
@@ -4752,10 +4752,10 @@ int initStrategie(){
  8002a74:	4618      	mov	r0, r3
  8002a76:	bd80      	pop	{r7, pc}
 	...
- 8002a80:	20000c48 	.word	0x20000c48
+ 8002a80:	20000b28 	.word	0x20000b28
  8002a84:	20000008 	.word	0x20000008
- 8002a88:	20000d44 	.word	0x20000d44
- 8002a8c:	20000518 	.word	0x20000518
+ 8002a88:	20000c24 	.word	0x20000c24
+ 8002a8c:	20000488 	.word	0x20000488
 
 08002a90 <HAL_TIM_PeriodElapsedCallback>:
 
@@ -4992,24 +4992,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  8002bf6:	370c      	adds	r7, #12
  8002bf8:	46bd      	mov	sp, r7
  8002bfa:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 8002bfc:	20000dd8 	.word	0x20000dd8
+ 8002bfc:	20000cb8 	.word	0x20000cb8
  8002c00:	20000004 	.word	0x20000004
- 8002c04:	20000c4c 	.word	0x20000c4c
- 8002c08:	20000d44 	.word	0x20000d44
+ 8002c04:	20000b2c 	.word	0x20000b2c
+ 8002c08:	20000c24 	.word	0x20000c24
  8002c0c:	40000800 	.word	0x40000800
- 8002c10:	20000d08 	.word	0x20000d08
+ 8002c10:	20000be8 	.word	0x20000be8
  8002c14:	40020400 	.word	0x40020400
- 8002c18:	20000cc8 	.word	0x20000cc8
- 8002c1c:	20000cfc 	.word	0x20000cfc
- 8002c20:	20000cb8 	.word	0x20000cb8
+ 8002c18:	20000ba8 	.word	0x20000ba8
+ 8002c1c:	20000bdc 	.word	0x20000bdc
+ 8002c20:	20000b98 	.word	0x20000b98
  8002c24:	4479c000 	.word	0x4479c000
  8002c28:	40001000 	.word	0x40001000
- 8002c2c:	20000d04 	.word	0x20000d04
- 8002c30:	20000cb4 	.word	0x20000cb4
- 8002c34:	20000d0c 	.word	0x20000d0c
- 8002c38:	20000d00 	.word	0x20000d00
+ 8002c2c:	20000be4 	.word	0x20000be4
+ 8002c30:	20000b94 	.word	0x20000b94
+ 8002c34:	20000bec 	.word	0x20000bec
+ 8002c38:	20000be0 	.word	0x20000be0
  8002c3c:	40001400 	.word	0x40001400
- 8002c40:	20000c34 	.word	0x20000c34
+ 8002c40:	20000b14 	.word	0x20000b14
 
 08002c44 <HAL_UART_RxCpltCallback>:
 
@@ -5092,14 +5092,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
  8002cc0:	bd80      	pop	{r7, pc}
  8002cc2:	bf00      	nop
  8002cc4:	40005000 	.word	0x40005000
- 8002cc8:	20000d0a 	.word	0x20000d0a
- 8002ccc:	20000c74 	.word	0x20000c74
- 8002cd0:	200010bc 	.word	0x200010bc
+ 8002cc8:	20000bea 	.word	0x20000bea
+ 8002ccc:	20000b54 	.word	0x20000b54
+ 8002cd0:	20000f9c 	.word	0x20000f9c
  8002cd4:	40004c00 	.word	0x40004c00
- 8002cd8:	20000c4c 	.word	0x20000c4c
- 8002cdc:	20000df0 	.word	0x20000df0
- 8002ce0:	20000df4 	.word	0x20000df4
- 8002ce4:	20001144 	.word	0x20001144
+ 8002cd8:	20000b2c 	.word	0x20000b2c
+ 8002cdc:	20000cd0 	.word	0x20000cd0
+ 8002ce0:	20000cd4 	.word	0x20000cd4
+ 8002ce4:	20001024 	.word	0x20001024
 
 08002ce8 <HAL_GPIO_EXTI_Callback>:
 
@@ -5193,11 +5193,11 @@ void initMoteurs(){
  8002d56:	46bd      	mov	sp, r7
  8002d58:	bd80      	pop	{r7, pc}
  8002d5a:	bf00      	nop
- 8002d5c:	20000e38 	.word	0x20000e38
+ 8002d5c:	20000d18 	.word	0x20000d18
  8002d60:	40020800 	.word	0x40020800
- 8002d64:	20000da8 	.word	0x20000da8
- 8002d68:	20000f10 	.word	0x20000f10
- 8002d6c:	20000dc0 	.word	0x20000dc0
+ 8002d64:	20000c88 	.word	0x20000c88
+ 8002d68:	20000df0 	.word	0x20000df0
+ 8002d6c:	20000ca0 	.word	0x20000ca0
 
 08002d70 <stopMoteurs>:
 
@@ -5219,8 +5219,8 @@ void stopMoteurs(){
 }
  8002d84:	bf00      	nop
  8002d86:	bd80      	pop	{r7, pc}
- 8002d88:	20000da8 	.word	0x20000da8
- 8002d8c:	20000dc0 	.word	0x20000dc0
+ 8002d88:	20000c88 	.word	0x20000c88
+ 8002d8c:	20000ca0 	.word	0x20000ca0
 
 08002d90 <startMoteurs>:
 
@@ -5238,8 +5238,8 @@ void startMoteurs(){
 }
  8002da4:	bf00      	nop
  8002da6:	bd80      	pop	{r7, pc}
- 8002da8:	20000da8 	.word	0x20000da8
- 8002dac:	20000dc0 	.word	0x20000dc0
+ 8002da8:	20000c88 	.word	0x20000c88
+ 8002dac:	20000ca0 	.word	0x20000ca0
 
 08002db0 <setMotors>:
 
@@ -5323,8 +5323,8 @@ void setMotors(double left, double right) {
  8002e5a:	46bd      	mov	sp, r7
  8002e5c:	bd90      	pop	{r4, r7, pc}
  8002e5e:	bf00      	nop
- 8002e60:	20000dc0 	.word	0x20000dc0
- 8002e64:	20000da8 	.word	0x20000da8
+ 8002e60:	20000ca0 	.word	0x20000ca0
+ 8002e64:	20000c88 	.word	0x20000c88
 
 08002e68 <getTickRight>:
 #include <asservissement.h>
@@ -5344,7 +5344,7 @@ int16_t getTickRight(){
  8002e78:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002e7c:	4770      	bx	lr
  8002e7e:	bf00      	nop
- 8002e80:	20000fa0 	.word	0x20000fa0
+ 8002e80:	20000e80 	.word	0x20000e80
 
 08002e84 <getTickLeft>:
 
@@ -5364,7 +5364,7 @@ int16_t getTickLeft(){
  8002e98:	46bd      	mov	sp, r7
  8002e9a:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002e9e:	4770      	bx	lr
- 8002ea0:	20000ec8 	.word	0x20000ec8
+ 8002ea0:	20000da8 	.word	0x20000da8
 
 08002ea4 <resetTickRight>:
 
@@ -5382,7 +5382,7 @@ void resetTickRight(){
  8002eb4:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002eb8:	4770      	bx	lr
  8002eba:	bf00      	nop
- 8002ebc:	20000fa0 	.word	0x20000fa0
+ 8002ebc:	20000e80 	.word	0x20000e80
 
 08002ec0 <resetTickLeft>:
 
@@ -5400,7 +5400,7 @@ void resetTickLeft(){
  8002ed0:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002ed4:	4770      	bx	lr
  8002ed6:	bf00      	nop
- 8002ed8:	20000ec8 	.word	0x20000ec8
+ 8002ed8:	20000da8 	.word	0x20000da8
  8002edc:	00000000 	.word	0x00000000
 
 08002ee0 <ODO_odometrie>:
@@ -5598,12 +5598,12 @@ void ODO_odometrie(){
  80030b4:	401921fb 	.word	0x401921fb
  80030b8:	54442d18 	.word	0x54442d18
  80030bc:	c00921fb 	.word	0xc00921fb
- 80030c0:	20000de8 	.word	0x20000de8
+ 80030c0:	20000cc8 	.word	0x20000cc8
  80030c4:	40700000 	.word	0x40700000
- 80030c8:	20000da0 	.word	0x20000da0
- 80030cc:	20000d98 	.word	0x20000d98
- 80030d0:	20000d90 	.word	0x20000d90
- 80030d4:	20000de0 	.word	0x20000de0
+ 80030c8:	20000c80 	.word	0x20000c80
+ 80030cc:	20000c78 	.word	0x20000c78
+ 80030d0:	20000c70 	.word	0x20000c70
+ 80030d4:	20000cc0 	.word	0x20000cc0
 
 080030d8 <ODO_setX>:
 
@@ -5622,7 +5622,7 @@ void ODO_setX(double x){
  80030f0:	46bd      	mov	sp, r7
  80030f2:	f85d 7b04 	ldr.w	r7, [sp], #4
  80030f6:	4770      	bx	lr
- 80030f8:	20000d90 	.word	0x20000d90
+ 80030f8:	20000c70 	.word	0x20000c70
 
 080030fc <ODO_setY>:
 
@@ -5641,7 +5641,7 @@ void ODO_setY(double y){
  8003114:	46bd      	mov	sp, r7
  8003116:	f85d 7b04 	ldr.w	r7, [sp], #4
  800311a:	4770      	bx	lr
- 800311c:	20000de0 	.word	0x20000de0
+ 800311c:	20000cc0 	.word	0x20000cc0
 
 08003120 <ODO_setAngle>:
 void ODO_setPosition(double x, double y){
@@ -5664,7 +5664,7 @@ void ODO_setAngle(double angle){
  8003138:	46bd      	mov	sp, r7
  800313a:	f85d 7b04 	ldr.w	r7, [sp], #4
  800313e:	4770      	bx	lr
- 8003140:	20000d98 	.word	0x20000d98
+ 8003140:	20000c78 	.word	0x20000c78
 
 08003144 <RetargetInit>:
 #define STDOUT_FILENO 1
@@ -5698,8 +5698,8 @@ void RetargetInit(UART_HandleTypeDef *huart) {
  8003166:	46bd      	mov	sp, r7
  8003168:	bd80      	pop	{r7, pc}
  800316a:	bf00      	nop
- 800316c:	20000e34 	.word	0x20000e34
- 8003170:	20000a34 	.word	0x20000a34
+ 800316c:	20000d14 	.word	0x20000d14
+ 8003170:	20000914 	.word	0x20000914
 
 08003174 <_isatty>:
 
@@ -5785,7 +5785,7 @@ int _write(int fd, char* ptr, int len) {
  80031ee:	46bd      	mov	sp, r7
  80031f0:	bd80      	pop	{r7, pc}
  80031f2:	bf00      	nop
- 80031f4:	20000e34 	.word	0x20000e34
+ 80031f4:	20000d14 	.word	0x20000d14
 
 080031f8 <_close>:
 
@@ -5893,7 +5893,7 @@ int _read(int fd, char* ptr, int len) {
  800328e:	46bd      	mov	sp, r7
  8003290:	bd80      	pop	{r7, pc}
  8003292:	bf00      	nop
- 8003294:	20000e34 	.word	0x20000e34
+ 8003294:	20000d14 	.word	0x20000d14
 
 08003298 <_fstat>:
 
@@ -6195,7 +6195,7 @@ void TIM2_IRQHandler(void)
  8003396:	bf00      	nop
  8003398:	bd80      	pop	{r7, pc}
  800339a:	bf00      	nop
- 800339c:	20000fe8 	.word	0x20000fe8
+ 800339c:	20000ec8 	.word	0x20000ec8
 
 080033a0 <TIM4_IRQHandler>:
 
@@ -6219,7 +6219,7 @@ void TIM4_IRQHandler(void)
  80033aa:	bf00      	nop
  80033ac:	bd80      	pop	{r7, pc}
  80033ae:	bf00      	nop
- 80033b0:	20000e80 	.word	0x20000e80
+ 80033b0:	20000d60 	.word	0x20000d60
 
 080033b4 <USART2_IRQHandler>:
 
@@ -6243,7 +6243,7 @@ void USART2_IRQHandler(void)
  80033be:	bf00      	nop
  80033c0:	bd80      	pop	{r7, pc}
  80033c2:	bf00      	nop
- 80033c4:	20001188 	.word	0x20001188
+ 80033c4:	20001068 	.word	0x20001068
 
 080033c8 <EXTI15_10_IRQHandler>:
 
@@ -6295,7 +6295,7 @@ void UART4_IRQHandler(void)
  80033f2:	bf00      	nop
  80033f4:	bd80      	pop	{r7, pc}
  80033f6:	bf00      	nop
- 80033f8:	20001144 	.word	0x20001144
+ 80033f8:	20001024 	.word	0x20001024
 
 080033fc <UART5_IRQHandler>:
 
@@ -6319,7 +6319,7 @@ void UART5_IRQHandler(void)
  8003406:	bf00      	nop
  8003408:	bd80      	pop	{r7, pc}
  800340a:	bf00      	nop
- 800340c:	200010bc 	.word	0x200010bc
+ 800340c:	20000f9c 	.word	0x20000f9c
 
 08003410 <TIM6_DAC_IRQHandler>:
 
@@ -6343,7 +6343,7 @@ void TIM6_DAC_IRQHandler(void)
  800341a:	bf00      	nop
  800341c:	bd80      	pop	{r7, pc}
  800341e:	bf00      	nop
- 8003420:	20000f58 	.word	0x20000f58
+ 8003420:	20000e38 	.word	0x20000e38
 
 08003424 <TIM7_IRQHandler>:
 
@@ -6367,7 +6367,7 @@ void TIM7_IRQHandler(void)
  800342e:	bf00      	nop
  8003430:	bd80      	pop	{r7, pc}
  8003432:	bf00      	nop
- 8003434:	20001030 	.word	0x20001030
+ 8003434:	20000f10 	.word	0x20000f10
 
 08003438 <_sbrk>:
 /**
@@ -6432,8 +6432,8 @@ caddr_t _sbrk(int incr)
  8003482:	3710      	adds	r7, #16
  8003484:	46bd      	mov	sp, r7
  8003486:	bd80      	pop	{r7, pc}
- 8003488:	20000c3c 	.word	0x20000c3c
- 800348c:	200011e0 	.word	0x200011e0
+ 8003488:	20000b1c 	.word	0x20000b1c
+ 800348c:	200010c0 	.word	0x200010c0
 
 08003490 <SystemInit>:
   *         configuration.
@@ -6595,7 +6595,7 @@ void MX_TIM1_Init(void)
  800355e:	46bd      	mov	sp, r7
  8003560:	bd80      	pop	{r7, pc}
  8003562:	bf00      	nop
- 8003564:	20000fa0 	.word	0x20000fa0
+ 8003564:	20000e80 	.word	0x20000e80
  8003568:	40010000 	.word	0x40010000
 
 0800356c <MX_TIM2_Init>:
@@ -6703,7 +6703,7 @@ void MX_TIM2_Init(void)
  80035fe:	46bd      	mov	sp, r7
  8003600:	bd80      	pop	{r7, pc}
  8003602:	bf00      	nop
- 8003604:	20000fe8 	.word	0x20000fe8
+ 8003604:	20000ec8 	.word	0x20000ec8
 
 08003608 <MX_TIM3_Init>:
 /* TIM3 init function */
@@ -6822,7 +6822,7 @@ void MX_TIM3_Init(void)
  80036a2:	3730      	adds	r7, #48	; 0x30
  80036a4:	46bd      	mov	sp, r7
  80036a6:	bd80      	pop	{r7, pc}
- 80036a8:	20000ec8 	.word	0x20000ec8
+ 80036a8:	20000da8 	.word	0x20000da8
  80036ac:	40000400 	.word	0x40000400
 
 080036b0 <MX_TIM4_Init>:
@@ -6929,7 +6929,7 @@ void MX_TIM4_Init(void)
  800373a:	3718      	adds	r7, #24
  800373c:	46bd      	mov	sp, r7
  800373e:	bd80      	pop	{r7, pc}
- 8003740:	20000e80 	.word	0x20000e80
+ 8003740:	20000d60 	.word	0x20000d60
  8003744:	40000800 	.word	0x40000800
 
 08003748 <MX_TIM6_Init>:
@@ -7011,7 +7011,7 @@ void MX_TIM6_Init(void)
  80037a6:	46bd      	mov	sp, r7
  80037a8:	bd80      	pop	{r7, pc}
  80037aa:	bf00      	nop
- 80037ac:	20000f58 	.word	0x20000f58
+ 80037ac:	20000e38 	.word	0x20000e38
  80037b0:	40001000 	.word	0x40001000
 
 080037b4 <MX_TIM7_Init>:
@@ -7092,7 +7092,7 @@ void MX_TIM7_Init(void)
  8003812:	3708      	adds	r7, #8
  8003814:	46bd      	mov	sp, r7
  8003816:	bd80      	pop	{r7, pc}
- 8003818:	20001030 	.word	0x20001030
+ 8003818:	20000f10 	.word	0x20000f10
  800381c:	40001400 	.word	0x40001400
 
 08003820 <MX_TIM8_Init>:
@@ -7297,7 +7297,7 @@ void MX_TIM8_Init(void)
  8003952:	46bd      	mov	sp, r7
  8003954:	bd80      	pop	{r7, pc}
  8003956:	bf00      	nop
- 8003958:	20000e38 	.word	0x20000e38
+ 8003958:	20000d18 	.word	0x20000d18
  800395c:	40010400 	.word	0x40010400
 
 08003960 <MX_TIM11_Init>:
@@ -7408,7 +7408,7 @@ void MX_TIM11_Init(void)
  80039ee:	46bd      	mov	sp, r7
  80039f0:	bd80      	pop	{r7, pc}
  80039f2:	bf00      	nop
- 80039f4:	20000f10 	.word	0x20000f10
+ 80039f4:	20000df0 	.word	0x20000df0
  80039f8:	40014800 	.word	0x40014800
 
 080039fc <HAL_TIM_Encoder_MspInit>:
@@ -7932,7 +7932,7 @@ void MX_UART4_Init(void)
  8003d5a:	bf00      	nop
  8003d5c:	bd80      	pop	{r7, pc}
  8003d5e:	bf00      	nop
- 8003d60:	20001144 	.word	0x20001144
+ 8003d60:	20001024 	.word	0x20001024
  8003d64:	40004c00 	.word	0x40004c00
 
 08003d68 <MX_UART5_Init>:
@@ -7996,7 +7996,7 @@ void MX_UART5_Init(void)
  8003dae:	bf00      	nop
  8003db0:	bd80      	pop	{r7, pc}
  8003db2:	bf00      	nop
- 8003db4:	200010bc 	.word	0x200010bc
+ 8003db4:	20000f9c 	.word	0x20000f9c
  8003db8:	40005000 	.word	0x40005000
 
 08003dbc <MX_USART1_UART_Init>:
@@ -8061,7 +8061,7 @@ void MX_USART1_UART_Init(void)
  8003e02:	bf00      	nop
  8003e04:	bd80      	pop	{r7, pc}
  8003e06:	bf00      	nop
- 8003e08:	20001100 	.word	0x20001100
+ 8003e08:	20000fe0 	.word	0x20000fe0
  8003e0c:	40011000 	.word	0x40011000
 
 08003e10 <MX_USART2_UART_Init>:
@@ -8126,7 +8126,7 @@ void MX_USART2_UART_Init(void)
  8003e56:	bf00      	nop
  8003e58:	bd80      	pop	{r7, pc}
  8003e5a:	bf00      	nop
- 8003e5c:	20001188 	.word	0x20001188
+ 8003e5c:	20001068 	.word	0x20001068
  8003e60:	40004400 	.word	0x40004400
 
 08003e64 <MX_USART3_UART_Init>:
@@ -8190,7 +8190,7 @@ void MX_USART3_UART_Init(void)
 }
  8003ea8:	bf00      	nop
  8003eaa:	bd80      	pop	{r7, pc}
- 8003eac:	20001078 	.word	0x20001078
+ 8003eac:	20000f58 	.word	0x20000f58
  8003eb0:	40004800 	.word	0x40004800
  8003eb4:	0003d090 	.word	0x0003d090
 
@@ -8719,11 +8719,11 @@ LoopFillZerobss:
   ldr  r0, =_sdata
  8004228:	20000000 	.word	0x20000000
   ldr  r3, =_edata
- 800422c:	20000c08 	.word	0x20000c08
+ 800422c:	20000ae8 	.word	0x20000ae8
   ldr  r2, =_sbss
- 8004230:	20000c08 	.word	0x20000c08
+ 8004230:	20000ae8 	.word	0x20000ae8
   ldr  r3, = _ebss
- 8004234:	200011e0 	.word	0x200011e0
+ 8004234:	200010c0 	.word	0x200010c0
 
 08004238 <ADC_IRQHandler>:
  * @retval None       
@@ -8857,9 +8857,9 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
  80042ce:	3708      	adds	r7, #8
  80042d0:	46bd      	mov	sp, r7
  80042d2:	bd80      	pop	{r7, pc}
- 80042d4:	20000a28 	.word	0x20000a28
- 80042d8:	20000a30 	.word	0x20000a30
- 80042dc:	20000a2c 	.word	0x20000a2c
+ 80042d4:	20000908 	.word	0x20000908
+ 80042d8:	20000910 	.word	0x20000910
+ 80042dc:	2000090c 	.word	0x2000090c
 
 080042e0 <HAL_IncTick>:
  * @note This function is declared as __weak to be overwritten in case of other 
@@ -8885,8 +8885,8 @@ __weak void HAL_IncTick(void)
  80042f8:	f85d 7b04 	ldr.w	r7, [sp], #4
  80042fc:	4770      	bx	lr
  80042fe:	bf00      	nop
- 8004300:	20000a30 	.word	0x20000a30
- 8004304:	200011cc 	.word	0x200011cc
+ 8004300:	20000910 	.word	0x20000910
+ 8004304:	200010ac 	.word	0x200010ac
 
 08004308 <HAL_GetTick>:
   * @note This function is declared as __weak to be overwritten in case of other 
@@ -8906,7 +8906,7 @@ __weak uint32_t HAL_GetTick(void)
  8004314:	f85d 7b04 	ldr.w	r7, [sp], #4
  8004318:	4770      	bx	lr
  800431a:	bf00      	nop
- 800431c:	200011cc 	.word	0x200011cc
+ 800431c:	200010ac 	.word	0x200010ac
 
 08004320 <HAL_Delay>:
   *       implementations in user file.
@@ -8959,7 +8959,7 @@ __weak void HAL_Delay(uint32_t Delay)
  800435e:	46bd      	mov	sp, r7
  8004360:	bd80      	pop	{r7, pc}
  8004362:	bf00      	nop
- 8004364:	20000a30 	.word	0x20000a30
+ 8004364:	20000910 	.word	0x20000910
 
 08004368 <HAL_ADC_Init>:
   * @param  hadc pointer to a ADC_HandleTypeDef structure that contains
@@ -9002,7 +9002,7 @@ HAL_StatusTypeDef HAL_ADC_Init(ADC_HandleTypeDef* hadc)
     /* Init the low level hardware */
     HAL_ADC_MspInit(hadc);
  8004386:	6878      	ldr	r0, [r7, #4]
- 8004388:	f7fd fb3e 	bl	8001a08 <HAL_ADC_MspInit>
+ 8004388:	f7fd fb3c 	bl	8001a04 <HAL_ADC_MspInit>
 #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
 
     /* Initialize ADC error code */
@@ -9368,7 +9368,7 @@ HAL_StatusTypeDef HAL_ADC_Start(ADC_HandleTypeDef* hadc)
  8004574:	46bd      	mov	sp, r7
  8004576:	f85d 7b04 	ldr.w	r7, [sp], #4
  800457a:	4770      	bx	lr
- 800457c:	20000a28 	.word	0x20000a28
+ 800457c:	20000908 	.word	0x20000908
  8004580:	431bde83 	.word	0x431bde83
  8004584:	40012300 	.word	0x40012300
  8004588:	40012000 	.word	0x40012000
@@ -9990,7 +9990,7 @@ HAL_StatusTypeDef HAL_ADC_ConfigChannel(ADC_HandleTypeDef* hadc, ADC_ChannelConf
  8004914:	40012300 	.word	0x40012300
  8004918:	40012000 	.word	0x40012000
  800491c:	10000012 	.word	0x10000012
- 8004920:	20000a28 	.word	0x20000a28
+ 8004920:	20000908 	.word	0x20000908
  8004924:	431bde83 	.word	0x431bde83
 
 08004928 <ADC_Init>:
@@ -11926,8 +11926,8 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  800544c:	40023c00 	.word	0x40023c00
  8005450:	40023800 	.word	0x40023800
  8005454:	0800d394 	.word	0x0800d394
- 8005458:	20000a28 	.word	0x20000a28
- 800545c:	20000a2c 	.word	0x20000a2c
+ 8005458:	20000908 	.word	0x20000908
+ 800545c:	2000090c 	.word	0x2000090c
 
 08005460 <HAL_RCC_GetHCLKFreq>:
   * @note   The SystemCoreClock CMSIS variable is used to store System Clock Frequency
@@ -11947,7 +11947,7 @@ uint32_t HAL_RCC_GetHCLKFreq(void)
  800546c:	f85d 7b04 	ldr.w	r7, [sp], #4
  8005470:	4770      	bx	lr
  8005472:	bf00      	nop
- 8005474:	20000a28 	.word	0x20000a28
+ 8005474:	20000908 	.word	0x20000908
 
 08005478 <HAL_RCC_GetPCLK1Freq>:
   * @note   Each time PCLK1 changes, this function must be called to update the
@@ -19189,7 +19189,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  8007ef2:	6818      	ldr	r0, [r3, #0]
  8007ef4:	4770      	bx	lr
  8007ef6:	bf00      	nop
- 8007ef8:	20000a34 	.word	0x20000a34
+ 8007ef8:	20000914 	.word	0x20000914
 
 08007efc <__libc_init_array>:
  8007efc:	b570      	push	{r4, r5, r6, lr}
@@ -20176,7 +20176,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800884c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
  8008850:	b004      	add	sp, #16
  8008852:	4770      	bx	lr
- 8008854:	20000a34 	.word	0x20000a34
+ 8008854:	20000914 	.word	0x20000914
 
 08008858 <_puts_r>:
  8008858:	b570      	push	{r4, r5, r6, lr}
@@ -20284,7 +20284,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  8008938:	6818      	ldr	r0, [r3, #0]
  800893a:	f7ff bf8d 	b.w	8008858 <_puts_r>
  800893e:	bf00      	nop
- 8008940:	20000a34 	.word	0x20000a34
+ 8008940:	20000914 	.word	0x20000914
 
 08008944 <setvbuf>:
  8008944:	e92d 43f7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
@@ -20443,7 +20443,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  8008aba:	2500      	movs	r5, #0
  8008abc:	e7b7      	b.n	8008a2e <setvbuf+0xea>
  8008abe:	bf00      	nop
- 8008ac0:	20000a34 	.word	0x20000a34
+ 8008ac0:	20000914 	.word	0x20000914
  8008ac4:	0800d59c 	.word	0x0800d59c
  8008ac8:	0800d5bc 	.word	0x0800d5bc
  8008acc:	0800d57c 	.word	0x0800d57c
@@ -20629,7 +20629,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  8008c5a:	2000      	movs	r0, #0
  8008c5c:	e7f7      	b.n	8008c4e <__swsetup_r+0xba>
  8008c5e:	bf00      	nop
- 8008c60:	20000a34 	.word	0x20000a34
+ 8008c60:	20000914 	.word	0x20000914
  8008c64:	0800d59c 	.word	0x0800d59c
  8008c68:	0800d5bc 	.word	0x0800d5bc
  8008c6c:	0800d57c 	.word	0x0800d57c
@@ -22154,25 +22154,25 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  8009b64:	4801      	ldr	r0, [pc, #4]	; (8009b6c <__sfp_lock_acquire+0x8>)
  8009b66:	f000 b8b8 	b.w	8009cda <__retarget_lock_acquire_recursive>
  8009b6a:	bf00      	nop
- 8009b6c:	200011d8 	.word	0x200011d8
+ 8009b6c:	200010b8 	.word	0x200010b8
 
 08009b70 <__sfp_lock_release>:
  8009b70:	4801      	ldr	r0, [pc, #4]	; (8009b78 <__sfp_lock_release+0x8>)
  8009b72:	f000 b8b3 	b.w	8009cdc <__retarget_lock_release_recursive>
  8009b76:	bf00      	nop
- 8009b78:	200011d8 	.word	0x200011d8
+ 8009b78:	200010b8 	.word	0x200010b8
 
 08009b7c <__sinit_lock_acquire>:
  8009b7c:	4801      	ldr	r0, [pc, #4]	; (8009b84 <__sinit_lock_acquire+0x8>)
  8009b7e:	f000 b8ac 	b.w	8009cda <__retarget_lock_acquire_recursive>
  8009b82:	bf00      	nop
- 8009b84:	200011d3 	.word	0x200011d3
+ 8009b84:	200010b3 	.word	0x200010b3
 
 08009b88 <__sinit_lock_release>:
  8009b88:	4801      	ldr	r0, [pc, #4]	; (8009b90 <__sinit_lock_release+0x8>)
  8009b8a:	f000 b8a7 	b.w	8009cdc <__retarget_lock_release_recursive>
  8009b8e:	bf00      	nop
- 8009b90:	200011d3 	.word	0x200011d3
+ 8009b90:	200010b3 	.word	0x200010b3
 
 08009b94 <__sinit>:
  8009b94:	b510      	push	{r4, lr}
@@ -22306,7 +22306,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
 08009cd0 <_localeconv_r>:
  8009cd0:	4800      	ldr	r0, [pc, #0]	; (8009cd4 <_localeconv_r+0x4>)
  8009cd2:	4770      	bx	lr
- 8009cd4:	20000b88 	.word	0x20000b88
+ 8009cd4:	20000a68 	.word	0x20000a68
 
 08009cd8 <__retarget_lock_init_recursive>:
  8009cd8:	4770      	bx	lr
@@ -22411,7 +22411,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  8009dac:	6818      	ldr	r0, [r3, #0]
  8009dae:	f000 bbef 	b.w	800a590 <_malloc_r>
  8009db2:	bf00      	nop
- 8009db4:	20000a34 	.word	0x20000a34
+ 8009db4:	20000914 	.word	0x20000914
 
 08009db8 <memcpy>:
  8009db8:	440a      	add	r2, r1
@@ -23218,7 +23218,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800a586:	e7c7      	b.n	800a518 <_free_r+0x28>
  800a588:	b003      	add	sp, #12
  800a58a:	bd30      	pop	{r4, r5, pc}
- 800a58c:	20000c40 	.word	0x20000c40
+ 800a58c:	20000b20 	.word	0x20000b20
 
 0800a590 <_malloc_r>:
  800a590:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
@@ -23297,8 +23297,8 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800a636:	d1dd      	bne.n	800a5f4 <_malloc_r+0x64>
  800a638:	e7cf      	b.n	800a5da <_malloc_r+0x4a>
  800a63a:	bf00      	nop
- 800a63c:	20000c40 	.word	0x20000c40
- 800a640:	20000c44 	.word	0x20000c44
+ 800a63c:	20000b20 	.word	0x20000b20
+ 800a640:	20000b24 	.word	0x20000b24
 
 0800a644 <__sfputc_r>:
  800a644:	6893      	ldr	r3, [r2, #8]
@@ -23604,7 +23604,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800a90e:	b103      	cbz	r3, 800a912 <_sbrk_r+0x1a>
  800a910:	6023      	str	r3, [r4, #0]
  800a912:	bd38      	pop	{r3, r4, r5, pc}
- 800a914:	200011dc 	.word	0x200011dc
+ 800a914:	200010bc 	.word	0x200010bc
 
 0800a918 <__sread>:
  800a918:	b510      	push	{r4, lr}
@@ -23682,7 +23682,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800a9ba:	b103      	cbz	r3, 800a9be <_write_r+0x1e>
  800a9bc:	6023      	str	r3, [r4, #0]
  800a9be:	bd38      	pop	{r3, r4, r5, pc}
- 800a9c0:	200011dc 	.word	0x200011dc
+ 800a9c0:	200010bc 	.word	0x200010bc
 
 0800a9c4 <__assert_func>:
  800a9c4:	b51f      	push	{r0, r1, r2, r3, r4, lr}
@@ -23704,7 +23704,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800a9ea:	461c      	mov	r4, r3
  800a9ec:	e7f3      	b.n	800a9d6 <__assert_func+0x12>
  800a9ee:	bf00      	nop
- 800a9f0:	20000a34 	.word	0x20000a34
+ 800a9f0:	20000914 	.word	0x20000914
  800a9f4:	0800d74d 	.word	0x0800d74d
  800a9f8:	0800d75a 	.word	0x0800d75a
  800a9fc:	0800d788 	.word	0x0800d788
@@ -23723,7 +23723,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aa16:	b103      	cbz	r3, 800aa1a <_close_r+0x1a>
  800aa18:	6023      	str	r3, [r4, #0]
  800aa1a:	bd38      	pop	{r3, r4, r5, pc}
- 800aa1c:	200011dc 	.word	0x200011dc
+ 800aa1c:	200010bc 	.word	0x200010bc
 
 0800aa20 <fiprintf>:
  800aa20:	b40e      	push	{r1, r2, r3}
@@ -23739,7 +23739,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aa38:	f85d eb04 	ldr.w	lr, [sp], #4
  800aa3c:	b003      	add	sp, #12
  800aa3e:	4770      	bx	lr
- 800aa40:	20000a34 	.word	0x20000a34
+ 800aa40:	20000914 	.word	0x20000914
 
 0800aa44 <_fstat_r>:
  800aa44:	b538      	push	{r3, r4, r5, lr}
@@ -23757,7 +23757,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aa5e:	6023      	str	r3, [r4, #0]
  800aa60:	bd38      	pop	{r3, r4, r5, pc}
  800aa62:	bf00      	nop
- 800aa64:	200011dc 	.word	0x200011dc
+ 800aa64:	200010bc 	.word	0x200010bc
 
 0800aa68 <_isatty_r>:
  800aa68:	b538      	push	{r3, r4, r5, lr}
@@ -23773,7 +23773,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aa7e:	b103      	cbz	r3, 800aa82 <_isatty_r+0x1a>
  800aa80:	6023      	str	r3, [r4, #0]
  800aa82:	bd38      	pop	{r3, r4, r5, pc}
- 800aa84:	200011dc 	.word	0x200011dc
+ 800aa84:	200010bc 	.word	0x200010bc
 
 0800aa88 <_lseek_r>:
  800aa88:	b538      	push	{r3, r4, r5, lr}
@@ -23791,7 +23791,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aaa2:	b103      	cbz	r3, 800aaa6 <_lseek_r+0x1e>
  800aaa4:	6023      	str	r3, [r4, #0]
  800aaa6:	bd38      	pop	{r3, r4, r5, pc}
- 800aaa8:	200011dc 	.word	0x200011dc
+ 800aaa8:	200010bc 	.word	0x200010bc
 
 0800aaac <__ascii_mbtowc>:
  800aaac:	b082      	sub	sp, #8
@@ -23816,13 +23816,13 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aad0:	4801      	ldr	r0, [pc, #4]	; (800aad8 <__malloc_lock+0x8>)
  800aad2:	f7ff b902 	b.w	8009cda <__retarget_lock_acquire_recursive>
  800aad6:	bf00      	nop
- 800aad8:	200011d4 	.word	0x200011d4
+ 800aad8:	200010b4 	.word	0x200010b4
 
 0800aadc <__malloc_unlock>:
  800aadc:	4801      	ldr	r0, [pc, #4]	; (800aae4 <__malloc_unlock+0x8>)
  800aade:	f7ff b8fd 	b.w	8009cdc <__retarget_lock_release_recursive>
  800aae2:	bf00      	nop
- 800aae4:	200011d4 	.word	0x200011d4
+ 800aae4:	200010b4 	.word	0x200010b4
 
 0800aae8 <_read_r>:
  800aae8:	b538      	push	{r3, r4, r5, lr}
@@ -23840,7 +23840,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800ab02:	b103      	cbz	r3, 800ab06 <_read_r+0x1e>
  800ab04:	6023      	str	r3, [r4, #0]
  800ab06:	bd38      	pop	{r3, r4, r5, pc}
- 800ab08:	200011dc 	.word	0x200011dc
+ 800ab08:	200010bc 	.word	0x200010bc
 
 0800ab0c <__ascii_wctomb>:
  800ab0c:	b149      	cbz	r1, 800ab22 <__ascii_wctomb+0x16>
@@ -23905,7 +23905,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800ab88:	6818      	ldr	r0, [r3, #0]
  800ab8a:	f7ff bfd3 	b.w	800ab34 <_raise_r>
  800ab8e:	bf00      	nop
- 800ab90:	20000a34 	.word	0x20000a34
+ 800ab90:	20000914 	.word	0x20000914
 
 0800ab94 <_kill_r>:
  800ab94:	b538      	push	{r3, r4, r5, lr}
@@ -23923,7 +23923,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800abae:	6023      	str	r3, [r4, #0]
  800abb0:	bd38      	pop	{r3, r4, r5, pc}
  800abb2:	bf00      	nop
- 800abb4:	200011dc 	.word	0x200011dc
+ 800abb4:	200010bc 	.word	0x200010bc
 
 0800abb8 <_getpid_r>:
  800abb8:	f002 bb9c 	b.w	800d2f4 <_getpid>
@@ -24083,7 +24083,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800ad76:	eef0 0a68 	vmov.f32	s1, s17
  800ad7a:	ecbd 8b02 	vpop	{d8}
  800ad7e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
- 800ad80:	20000c04 	.word	0x20000c04
+ 800ad80:	20000ae4 	.word	0x20000ae4
 
 0800ad84 <pow>:
  800ad84:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -24214,7 +24214,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800aeca:	4d04      	ldr	r5, [pc, #16]	; (800aedc <pow+0x158>)
  800aecc:	2400      	movs	r4, #0
  800aece:	e77e      	b.n	800adce <pow+0x4a>
- 800aed0:	20000c04 	.word	0x20000c04
+ 800aed0:	20000ae4 	.word	0x20000ae4
  800aed4:	fff00000 	.word	0xfff00000
  800aed8:	7ff00000 	.word	0x7ff00000
  800aedc:	3ff00000 	.word	0x3ff00000
@@ -24256,7 +24256,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800af3c:	ecbd 8b02 	vpop	{d8}
  800af40:	bd38      	pop	{r3, r4, r5, pc}
  800af42:	bf00      	nop
- 800af44:	20000c04 	.word	0x20000c04
+ 800af44:	20000ae4 	.word	0x20000ae4
 
 0800af48 <__ieee754_atan2>:
  800af48:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -27525,7 +27525,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800d2f8:	601a      	str	r2, [r3, #0]
  800d2fa:	f04f 30ff 	mov.w	r0, #4294967295
  800d2fe:	4770      	bx	lr
- 800d300:	200011dc 	.word	0x200011dc
+ 800d300:	200010bc 	.word	0x200010bc
 
 0800d304 <_kill>:
  800d304:	4b02      	ldr	r3, [pc, #8]	; (800d310 <_kill+0xc>)
@@ -27533,7 +27533,7 @@ static void UART_SetConfig(UART_HandleTypeDef *huart)
  800d308:	601a      	str	r2, [r3, #0]
  800d30a:	f04f 30ff 	mov.w	r0, #4294967295
  800d30e:	4770      	bx	lr
- 800d310:	200011dc 	.word	0x200011dc
+ 800d310:	200010bc 	.word	0x200010bc
 
 0800d314 <_exit>:
  800d314:	e7fe      	b.n	800d314 <_exit>

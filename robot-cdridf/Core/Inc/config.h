@@ -32,7 +32,7 @@ typedef int bool;
 #define ANGLE_FLAG_DEPLOY 15
 
 #define ANGLE_BRAS_RAISE 90
-#define ANGLE_BRAS_DEPLOY 50 // 10
+#define ANGLE_BRAS_DEPLOY 10 // 10
 
 /* Module asservissement */
 #define ASSERV_ROTATION_EN 1
