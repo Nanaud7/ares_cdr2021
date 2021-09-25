@@ -3,9 +3,9 @@
 #define VALID_RADIUS 10
 #define VALID_ANGLE 0.01
 
-#define VMAX_RECT 10 // 10 c'est pas mal
+#define VMAX_RECT 15 // 10 c'est pas mal
 #define VMIN_DISTANCE 0.5
-#define VMAX_ROTATION 8
+#define VMAX_ROTATION 12
 #define VMIN_ROTATION 0.1
 
 double initialAngleError = 0;
@@ -51,10 +51,10 @@ double speedCurve1(double progress) {
     return (speed<0)?0:speed;
 }
 
-//double speedCurve2(double progress) {
-//    double speed = 27/4*progress*(1-progress)*(1-progress);
-//    return (speed<0)?0:speed;
-//}
+double speedCurve2(double progress) {
+    double speed = 27/4*progress*(1-progress)*(1-progress);
+    return (speed<0)?0:speed;
+}
 //
 //double speedCurve3(double progress) {
 //    double speed = 10*progress*(1-progress)*(1-progress)*(1-progress);

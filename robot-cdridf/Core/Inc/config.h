@@ -13,7 +13,7 @@ typedef int bool;
 #define MODULE_ACTIONNEURS 1
 #define MODULE_ASSERVISSEMENT 1
 #define MODULE_COMPTEUR 1
-#define MODULE_DEBUG 0
+#define MODULE_DEBUG 1
 #define MODULE_IHM 1
 #define MODULE_LIDAR 1
 #define MODULE_MOTEURS 1
@@ -95,7 +95,7 @@ typedef int bool;
 
 
 /* Module tirette*/
-#define TIRETTE_SEUIL 3.15 // 3.05
+#define TIRETTE_SEUIL 3.2 // 3.05
 
 
 /* Autres */

@@ -68,11 +68,7 @@ void setMotors(double left, double right) {
     DRV8825_setDir(&moteur_G, (left < 0)?BACKWARD:FORWARD);
     DRV8825_setDir(&moteur_D, (right < 0)?BACKWARD:FORWARD);
 
-    // activer ou non les moteurs
-    if (left == 0 && right == 0)
-        stopMoteurs();
-    else
-    	startMoteurs();
+    startMoteurs();
 
 	#endif
 }
