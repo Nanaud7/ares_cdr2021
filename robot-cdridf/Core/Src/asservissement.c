@@ -3,9 +3,9 @@
 #define VALID_RADIUS 10
 #define VALID_ANGLE 0.01
 
-#define VMAX_RECT 15 // 10 c'est pas mal
+#define VMAX_RECT 15 // 15 c'est pas mal
 #define VMIN_DISTANCE 0.5
-#define VMAX_ROTATION 12
+#define VMAX_ROTATION 13 // 12
 #define VMIN_ROTATION 0.1
 
 double initialAngleError = 0;
@@ -112,7 +112,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
     	double spin = VMAX_ROTATION*speedCurve1(rotateProgress)/2;
 
     	// aller plus vite sur les rotations longues
-    	spin *= fabs(initialAngleError)/M_PI;
+    	spin *= toZeroOne(0.2 + fabs(initialAngleError)/M_PI);
 
     	// imposer une vitesse min au début de la rotation
     	spin += VMIN_ROTATION*(1-rotateProgress);
@@ -125,7 +125,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
     	double speed = VMAX_RECT*speedCurve1(moveProgress);
 
     	// aller plus vite sur les longs segments
-    	speed *= toZeroOne(0.2 + segmentLength/1000);
+    	speed *= toZeroOne(0.3 + segmentLength/1000);
 
     	// ralentir si l'angle est mauvais
     	speed *= 1/(1+pow(fabs(angleError/VALID_ANGLE/5), 2));
