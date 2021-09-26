@@ -112,7 +112,8 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
     	double spin = VMAX_ROTATION*speedCurve1(rotateProgress)/2;
 
     	// aller plus vite sur les rotations longues
-    	spin *= toZeroOne(0.2 + fabs(initialAngleError)/M_PI);
+    	//spin *= toZeroOne(0.2 + fabs(initialAngleError)/M_PI);
+    	spin *= fabs(initialAngleError)/M_PI;
 
     	// imposer une vitesse min au début de la rotation
     	spin += VMIN_ROTATION*(1-rotateProgress);
@@ -125,7 +126,7 @@ void ASSERV_update2(CONSIGNE point, CONSIGNE* previous) {
     	double speed = VMAX_RECT*speedCurve1(moveProgress);
 
     	// aller plus vite sur les longs segments
-    	speed *= toZeroOne(0.3 + segmentLength/1000);
+    	speed *= toZeroOne(0.2 + segmentLength/1000);
 
     	// ralentir si l'angle est mauvais
     	speed *= 1/(1+pow(fabs(angleError/VALID_ANGLE/5), 2));
